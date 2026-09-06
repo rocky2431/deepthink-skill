@@ -1,92 +1,155 @@
 # Deep Thinking
 
-[English](README.md)
+[English](README.md) · [简体中文](README.zh-CN.md)
 
-用于 Codex、Claude Code、原生 Kimi Code 和 zCode 的人机共同思考 Skill。
-它将 Clear My Mind 与 Deep Research 放在同一条
-可往返的路径中：先对齐需要的 Beta，再寻找值得研究的 Alpha，最终形成有依据、
-可修订、能够使用的成果。
+Deep Thinking 帮助你与 AI Agent 一起理清想法、研究问题、做出判断。它从问题本身出发，查证依据、比较可能的答案，最后写成可以使用的研究报告、决策备忘录、论证稿或方案。
 
-## 怎样使用
+它以原生插件的形式运行在 Codex、Claude Code、Kimi Code 或 zCode 中。Clear My Mind 用于澄清原意、概念和假设，Deep Research 用于调查外部证据和不同解释。两者交替推进：研究发现可以改变问题，问题变得清楚后，也可能需要调整研究方向。
 
-在宿主中调用主 Skill，给出正在面对的真实问题和已有材料即可。已说明过的背景、
-目标和取舍会继续使用，不需要重新完成一套访谈。
+适合需要持续讨论和调查的议题，例如评估产品方向、检查一个深信不疑的观点。普通事实查询可以直接交给 Agent。
 
-主流程为 **定题 → 澄清 ↔ 研究 → 综合 → 检查 → 交付**。每步有产物与转出条件；
-已有材料可以满足步骤，新证据可以使问题回退。你可以随时说“先理清这个概念”、
-“研究这个假设”、“开一轮圆桌”、“找独立 Agent 审查”、“只用当前 Agent”、
-“收束成决策备忘录”、“暂停”或“结束”，不需要学习额外命令语言。
+版本：0.1.1。插件包含 Skill、参考文档和模板，模型与工具由宿主提供。
 
-你掌握原意、价值取舍、自己的理解以及是否停止。AI 独立判断证据和推论，主动说明
-何时已经足以交付；不能把自己的交付写成你已经接受，也不能把你说停当成目标达成。
+- [安装与开始使用](#安装与开始使用)
+- [第一个议题](#第一个议题)
+- [议题如何推进](#议题如何推进)
+- [文件与进度](#文件与进度)
+- [当前限制](#当前限制)
+- [文档](#文档)
+- [开发](#开发)
 
-## 每次业务会留下什么
+## 安装与开始使用
 
-默认在已有议题目录中维护两份文件；新议题默认位于工作区的 `thinking/<议题>/`，
-开始时会说明实际路径。业务材料不会写入可复用的 Skill 包。
+你需要一个能加载原生插件和 Skill 的宿主。Deep Thinking 沿用你的模型与提供方配置，不锁定宿主、模型、提供方或可选工具的版本。插件清单中的版本号用于识别本插件的发布版本。
 
-| 文件 | 作用 |
-| --- | --- |
-| `THOUGHTS.md` | 当前步骤与状态、问题骨架、因子与证据、判断变化、替代解释、分歧及未决项 |
-| `RESULT.md` | 可以独立阅读的研究报告、决策备忘录、论证稿或方案，包含关键引用、条件、限制和必要下一步 |
-
-每个阶段更新底稿并说明变化，不要求每阶段、每个 Agent 各写一份报告。
-提前结束时，成果会明确标注已知与未完成部分；要求不再整理或不留文件时遵从。
-
-## 按 Ultra 系列规格安装
-
-采用一个原生插件包、一个主 Skill：二者名称均为 `deep-thinking`。
-不要再添加同名用户 Skill 或转发命令，以免出现重复入口、旧版本遮蔽。
-先克隆公开仓库：
+克隆仓库，再通过宿主的插件管理器安装本地副本：
 
 ```sh
 git clone https://github.com/rocky2431/deepthink-skill.git
 ```
 
-以下 `<仓库绝对路径>` 指克隆后的项目目录。
-不锁定宿主、模型、提供方或可选工具的版本；使用具备原生插件和 Skill 能力的宿主，
-沿用你自己的模型与提供方配置。以下命令是示例，实际语法以已安装宿主的帮助为准。
-manifest 中的版本号仅用于识别本插件的发布版本，不是宿主版本要求。
-市场目录引用仓库内的插件路径，不固定 release tag 或提交。
+进入仓库，将路径用于下面的安装命令：
 
-| CLI | 原生安装方式 | 调用入口 |
-| --- | --- | --- |
-| Codex | `codex plugin marketplace add <仓库绝对路径>`，再运行 `codex plugin add deep-thinking@rocky-deep-thinking` | 新会话中使用 `$deep-thinking` |
-| Claude Code | `claude plugin marketplace add <仓库绝对路径>`，再运行 `claude plugin install deep-thinking@rocky-deep-thinking` | `/deep-thinking:deep-thinking` |
-| 原生 Kimi Code | 在 TUI 中使用 `/plugins install <仓库绝对路径>/plugins/deep-thinking`，然后 `/reload` | `/skill:deep-thinking` |
-| zCode | 使用原生插件市场添加本仓库目录，找到 Deep Thinking 并安装；导航名称以当前应用界面为准 | 原生 `/skill` 选择器或 `/skill deep-thinking` |
+```sh
+cd deepthink-skill
+DEEP_THINKING_REPO="$(pwd)"
+```
 
-Shell 里的路径参数含空格时需加引号。如果 Kimi TUI 把引号当成路径字符，
-请直接粘贴完整路径，不加引号，即使路径含空格。上例是 TUI 命令，
-请按已安装 Kimi 的插件帮助使用。zCode 的 CLI 不一定在 PATH 中。
-四种 manifest 共同引用包内同一份 `skills/deep-thinking`，不会维护四份分叉内容。
+### Codex
 
-改动源文件之后，需要通过宿主原生插件管理刷新并重新安装，再在新会话使用。
-源码正确、插件列表出现、实际调用成功是不同层次的证据。
-曾测试的环境、实际观察和局限见 [注明日期的验证记录](RESULT.md)，
-这些记录不是安装版本要求，也不保证所有宿主版本都有相同表现。
+```sh
+codex plugin marketplace add "$DEEP_THINKING_REPO"
+codex plugin add deep-thinking@rocky-deep-thinking
+codex plugin list --json
+```
 
-## 论文和方法融入在哪里
+Codex 读取 `.agents/plugins/marketplace.json` 和包内的 `.codex-plugin/plugin.json`。
 
-| 位置 | 实际用途 |
+### Claude Code
+
+```sh
+claude plugin validate "$DEEP_THINKING_REPO/plugins/deep-thinking" --json
+claude plugin marketplace add "$DEEP_THINKING_REPO"
+claude plugin install deep-thinking@rocky-deep-thinking
+claude plugin list --json
+```
+
+Claude Code 使用 `.claude-plugin/marketplace.json`，通过原生插件布局发现包内的 `skills/` 目录。
+
+### Kimi Code
+
+在原生 Kimi Code 的 TUI 中运行 `/plugins install`，传入 `<仓库绝对路径>/plugins/deep-thinking`，然后执行 `/reload`。插件使用 `kimi.plugin.json`，安装位置由 Kimi 管理。
+
+这些是 TUI 命令。如果 Kimi 把引号当成路径字符，直接粘贴不带引号的完整路径，即使路径中含有空格。
+
+### zCode
+
+通过 zCode 的原生插件市场添加本地仓库目录，找到 Deep Thinking 并安装。市场使用 `.claude-plugin/marketplace.json`，包内提供 `.zcode-plugin/plugin.json`。
+
+原生 CLI 的 `plugins list --json` 和 `skills list --json` 可以检查发现结果。CLI 的实际路径取决于安装位置，不一定在 `PATH` 中。
+
+### 插件原生入口
+
+安装后重新加载插件或开启新会话，通过宿主的原生入口调用主 Skill：
+
+| 宿主 | 主 Skill 入口 |
 | --- | --- |
-| [SKILL.md](plugins/deep-thinking/skills/deep-thinking/SKILL.md) | 规定主流程、状态、结束权、两份业务产物、Beta/Alpha 与方法选择 |
-| [methods.md](plugins/deep-thinking/skills/deep-thinking/references/methods.md) | 引导发现、发散与收敛、信息价值、针对具体问题的智识标准检查 |
-| [research.md](plugins/deep-thinking/skills/deep-thinking/references/research.md) | 问题结构关联证据、关键因子与反证、资料适用性、研究推动问题和结论修订 |
-| [roundtable.md](plugins/deep-thinking/skills/deep-thinking/references/roundtable.md) | 独立初判、聚焦分歧、交叉质询、成熟方案的对抗审查、基于理由修订判断 |
-| [hosts.md](plugins/deep-thinking/skills/deep-thinking/references/hosts.md) | 原生入口、可用工具、跨 Agent 委派边界与读取底稿接续 |
-| [assets](plugins/deep-thinking/skills/deep-thinking/assets/) | 过程底稿和最终成果的实际模板 |
+| Codex | `$deep-thinking` |
+| Claude Code | `/deep-thinking:deep-thinking` |
+| Kimi Code | `/skill:deep-thinking` |
+| zCode | `/skill deep-thinking`，或在 Skill 选择器中选择 |
 
-来源及其适用限制与方法放在一起，进入相关任务时才读取。借鉴论文中的做法，
-不意味着论文已经证明这个 Skill 有效。个人体验、事实正确性、认知吸收和跨问题
-效果分别记录；多模型共识、少数新观点或权威来源都不能单独证明正确。
+插件及其唯一的主 Skill 都叫 `deep-thinking`，四种宿主加载同一份 Skill 内容。每个宿主安装一份即可，避免重复入口或旧的用户 Skill 优先加载。
 
-## 边界与检查
+安装语法和界面名称可能随版本变化，存在差异时以已安装宿主的帮助为准。市场目录引用仓库内的插件路径，不固定发布标签或提交。更新仓库后，通过原生插件管理器刷新并重新安装，再开启新会话；只改源码不会更新已安装的插件缓存。
 
-包内只有指令、参考与模板，没有后台常驻程序、Stop hooks、固定辩论轮数或
-强制服务依赖。研究和委派使用宿主当前可用且已获授权的能力；不可用时如实说明。
-读取文件接续也不等于四个宿主都具备自动压缩恢复。
+## 第一个议题
 
-运行 `python3 tests/check_package.py` 检查包结构、版本、入口与本地引用。
-实际原生加载和业务流程观察另行记录。[THOUGHTS.md](THOUGHTS.md) 保存本次共创过程，
-不随插件安装。
+在准备保存议题的工作区中打开 Agent，调用 Deep Thinking，说明问题、已有材料和需要的成果。例如：
+
+> 使用 Deep Thinking，评估这个产品方向是否值得继续投入。先读取项目笔记中的需求和约束，调查可能改变决定的假设，最后写成决策备忘录，保留替代方案和未决问题。
+
+Agent 会先读取已有背景，确定这次需要回答什么。遇到会影响后续工作的个人理解或选择时，一次问一个明确的问题；事实缺口由它使用可用工具调查。已经提供的背景会继续使用。
+
+你决定价值取舍和是否继续。Agent 提出想法和独立判断，说明理由，并在证据或背景修正后调整结论。
+
+## 议题如何推进
+
+默认流程为 **定题 → 澄清 ↔ 研究 → 综合 → 检查 → 交付**。
+
+1. 明确问题、目的、范围和成果形式，确定结果做到什么程度才足以使用。
+2. 澄清概念、目标、约束和假设，找出已经知道的内容与可能改变方向的缺口。
+3. 调查这些缺口，查阅来源、反证和不同解释，把发现与原问题联系起来。
+4. 综合候选答案，比较替代方案，说明每个判断依赖的前提。
+5. 对照原始需求检查答案，审查关键推论和遗漏，修正结论或补充适用条件。
+6. 交付可以独立阅读的文档，说明答案、依据、条件和剩余限制。
+
+已有材料可以满足某个阶段，新证据也可以让工作回到澄清或研究。流程不规定问答次数或讨论轮数。某个分支开始重复，或需要另一类证据时，Agent 会记录尚未解决的内容及重新展开的理由。
+
+默认使用普通讨论。若研究分支彼此独立，且已有授权，可以交给其他 Agent 调查。不同专长或假设可能改变答案时，使用圆桌比较观点；候选结论或方案已经成形时，可以直接做对抗审查，检查错误和遗漏，一位独立审阅者也可能足够。参与者来自宿主实际提供的能力。
+
+Skill 区分个人学习与外部新颖性。对你而言新出现的洞见是个人 Alpha，理解并吸收后成为个人 Beta。它在某个领域是否少见、证据是否支持它，需要分别判断。熟悉的知识可以有用，新颖的想法也可能出错。
+
+你可以用自然语言调整方向，例如“研究这个假设”“开一轮圆桌”“找独立 Agent 审查”“只用当前 Agent”或“收束成决策备忘录”。
+
+## 文件与进度
+
+持续议题沿用已有目录；新议题默认放在工作区的 `thinking/<议题>/` 下。Agent 会在开始时说明实际路径，议题材料保存在可复用的插件包之外。
+
+| 文件 | 内容 |
+| --- | --- |
+| `THOUGHTS.md` | 过程底稿：当前阶段与状态、问题结构、证据、替代方案、判断、重要修订和未决分支 |
+| `RESULT.md` | 最终产物：研究报告、决策备忘录、论证稿或方案，包含关键引用、条件、限制和必要的下一步 |
+
+Agent 在议题开始时创建底稿，在交付或结束时写出成果。两份文件使用你选择的语言。阶段进展更新到底稿中，无需为每个阶段或参与者单独写报告。
+
+进度说明包括发生了什么变化、还缺什么，以及下一步做什么。约定目的已有依据充分的答案时，Agent 主动交付。交付表示成果已经准备好，是否接受由你决定。
+
+你可以随时说“暂停”或“结束”。提前结束会留下标明未完成部分的阶段成果，除非你要求不再写作。也可以选择只在对话中推进，不保存文件。接续已有议题时，让 Agent 读取对应的 `THOUGHTS.md`，从当前进展继续。
+
+## 当前限制
+
+研究和委派依赖宿主可用的工具与权限。插件不附带后台常驻程序、Hook、MCP 服务、提供方订阅或强制运行依赖。底稿可供接续时读取，但不提供上下文压缩后的自动恢复或后台续跑。
+
+流程仍由模型执行，输出可能出现无依据的推断或错误的进度状态。多个 Agent 意见一致、来源有声望或文档已经写完，都不能单独证明结论正确。
+
+参考文档说明了方法的研究来源及其适用限制。这些研究不等于对本 Skill 的效果验证。跨问题的稳定判断质量、长期学习效果、减少迎合的效果，以及相对普通对话的优势，目前都没有得到证明。
+
+## 文档
+
+- [Skill 指令](plugins/deep-thinking/skills/deep-thinking/SKILL.md)：工作流程、状态、停止规则、产物和方法选择。
+- [澄清方法](plugins/deep-thinking/skills/deep-thinking/references/methods.md)：引导发现、探索与收敛、信息价值和推理检查。
+- [研究流程](plugins/deep-thinking/skills/deep-thinking/references/research.md)：来源证据、不同解释，以及研究如何修订问题。
+- [圆桌与审查](plugins/deep-thinking/skills/deep-thinking/references/roundtable.md)：独立初判、聚焦质询和候选答案审查。
+- [宿主说明](plugins/deep-thinking/skills/deep-thinking/references/hosts.md)：原生入口、可用工具、委派和接续。
+- [模板](plugins/deep-thinking/skills/deep-thinking/assets/)：过程底稿与独立成果。
+
+## 开发
+
+包检查使用 Python 标准库。在仓库根目录运行：
+
+```sh
+python3 tests/check_package.py
+```
+
+检查覆盖四份插件清单、版本一致性、唯一主 Skill 入口、市场目录、模板和本地链接。原生插件加载与实际议题的输出质量，需要在宿主中另行检查。
