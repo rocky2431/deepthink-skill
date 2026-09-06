@@ -16,7 +16,7 @@ Use it for questions that need sustained discussion and investigation, such as
 assessing a product direction or examining a strongly held view. Routine factual
 questions can go directly to your agent.
 
-Version: 0.1.1. The plugin contains a Skill, references and templates. Your host
+Version: 0.1.2. The plugin contains a Skill, references and templates. Your host
 provides the model and tools.
 
 - [Install and start](#install-and-start)
@@ -179,7 +179,7 @@ The agent creates the draft when the inquiry starts and writes the result when
 delivering or ending. Both use your chosen language. Stage updates go into the
 draft; separate reports for each stage or contributor are unnecessary.
 
-Progress updates explain what changed, what remains and the next useful action.
+Progress updates explain what is settled and why, what remains open and the next useful action.
 The agent delivers when the agreed purpose has a supported answer. Delivery
 records that a result is ready; your acceptance remains yours to give.
 

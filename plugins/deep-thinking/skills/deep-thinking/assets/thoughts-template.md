@@ -9,8 +9,9 @@
 - Scope, intended deliverable, and sufficient outcome:
 - Stage: Frame / Clarify / Research / Synthesize / Check / Deliver
 - Status: active / waiting_user / waiting_evidence / delivered / paused / ended
+- Settled so far and the basis for each:
 - Latest material change and its basis:
-- Pivotal gap or pending owner choice:
+- Still open: pivotal gaps, pending owner choices, and what would settle each:
 - Next action and why it serves the whole inquiry:
 - Result path and whether it has been delivered:
 

@@ -70,9 +70,9 @@ content in the conversation and state that no files were saved.
 
 - **`THOUGHTS.md`** is the working document. Create it on entry using
   [the draft template](assets/thoughts-template.md). Keep its top current: question,
-  purpose and output, stage, status, material change, pivotal gaps, next action and
-  reason, and result path. Below it maintain the problem structure, factor map,
-  evidence, alternatives, judgments, meaningful revisions, and parked branches.
+  purpose and output, stage, status, what is settled, material change, pivotal gaps,
+  next action and reason, and result path. Below it maintain the problem structure,
+  factor map, evidence, alternatives, judgments, meaningful revisions, and parked branches.
 - **`RESULT.md`** is the independent deliverable. Create it when delivering or ending,
   using [the result template](assets/result-template.md). Adapt it to the requested
   research report, decision memo, argument, article, or plan. Answer the original
@@ -119,10 +119,13 @@ Use one current stage and one status in the draft:
 An explicit user request to end takes precedence over `delivered`; the result can
 be delivered while the inquiry's status is `ended`.
 
-At a branch or method change, material revision, or convergence, briefly show the
-overall purpose, current branch and method, what changed and why, what remains, and
-the next move. Include delivery progress as well as intellectual progress. Ordinary
-turns need only their useful contribution and implication; avoid an unchanged dashboard.
+At a branch or method change, material revision, convergence, or the completion of a
+coherent batch of evidence or clarification work, briefly show the overall purpose,
+current branch and method, what is now settled and on what basis, what remains open,
+and the next move. Include delivery progress as well as intellectual progress. When
+a batch only extends the settled and open lists, show just those two and the next move.
+Ordinary turns need only their useful contribution and implication; avoid an unchanged
+dashboard.
 Counts of questions, agents, sources, or completed headings are not measures of success.
 
 Before deepening a branch, compare it with the other consequential gaps: how uncertain
