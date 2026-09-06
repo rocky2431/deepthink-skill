@@ -1,6 +1,6 @@
 # Deep Thinking：完整实现与四 CLI 交付记录
 
-日期：2026-09-06。基础版本：**0.1.0**；本机实际安装构建：`0.1.0+codex.20260906011727`。
+初次实现验证日期：2026-09-06。下列运行观察记录当时的环境，不是后续发行版本的重新测试或安装版本要求。当前公开包不锁定宿主、模型、提供方或可选工具版本；插件自身的发布版本以四份 manifest 为准。
 
 本轮已把用户接受的运行方案落实为一个可安装、可调用的原生插件：一个 `deep-thinking` 主 Skill，覆盖 Clear My Mind 与 Deep Research，包含业务顺序、状态、文件、收敛、结束权，以及研究、圆桌和对抗审查的选择方式。Codex、Claude Code、原生 Kimi Code 和 zCode 已安装并实际调用。
 
@@ -83,29 +83,20 @@ plugins/deep-thinking/
 
 ## 4. 四端安装与入口
 
-以下是本机实际核对的宿主版本，不是对外宣称的最新版本。四端均启用相同构建 `0.1.0+codex.20260906011727`；后缀由 Codex 插件开发工具生成，用来刷新本地缓存，其他 manifest 同步保持一致。
+以下是初次验证时使用的宿主版本，仅用于说明历史观察的适用环境，不是安装约束，也不代表最新版本。公开包按原生插件和 Skill 能力适配，不要求使用这些具体版本。
 
-| 宿主 | 本机版本 | 原生调用 | 实际安装方式与结果 |
+| 宿主 | 历史验证版本 | 原生调用 | 当时的安装方式与结果 |
 | --- | --- | --- | --- |
 | Codex | 0.153.4 | `$deep-thinking` | 原生 CLI 注册本地 `rocky-deep-thinking` 市场并安装；真实新进程读取安装目录的 Skill |
 | Claude Code | 2.1.261 | `/deep-thinking:deep-thinking` | 原生市场添加、安装及更新成功；新进程报告修正版，展开的 Skill 正文含最新规则 |
 | 原生 Kimi Code | 0.41.0 | `/skill:deep-thinking` | TUI `/plugins install` 本地路径成功；更新后新进程通过原生 Skill 工具加载 |
 | zCode | 0.16.5 | `/skill deep-thinking` 或原生选择器 | 桌面插件市场添加本地仓库、安装及重装成功；原生 CLI 显示启用、一个 Skill，实际调用产出文件 |
 
-四份实际安装位置：
+初次验证从宿主实际报告的安装位置比较了四端各12份文件，与当时的规范源码逐字节一致。安装目录由各宿主管理；不要将验证机器的缓存位置作为其他人的安装路径。
 
-```text
-Codex:  ~/.codex/plugins/cache/rocky-deep-thinking/deep-thinking/0.1.0+codex.20260906011727
-Claude: ~/.claude/plugins/cache/rocky-deep-thinking/deep-thinking/0.1.0-codex.20260906011727
-Kimi:   ~/.kimi-code/plugins/managed/deep-thinking
-zCode:  ~/.zcode/cli/plugins/cache/rocky-deep-thinking/deep-thinking/0.1.0-codex.20260906011727
-```
+可复用安装步骤见 [中文 README](README.zh-CN.md) 和 [English README](README.md)。公开仓库中的修改不会自动更新已安装的插件；通过各宿主原生管理刷新后，在新会话调用。
 
-Claude 和 zCode 的缓存目录名将 `+` 处理为 `-`，manifest 版本仍保留 `+`。Claude 本地市场的实际会话会报告源码目录作为加载位置。安装管理记录和运行轨迹优先于猜测路径；本轮从实际路径比较了四端各12份文件，与规范源码逐字节一致。
-
-本机已完成安装。使用时在宿主新会话调用以上入口；Kimi 也可使用 `/reload` 应用插件变更。可复用安装步骤见 [中文 README](README.zh-CN.md) 和 [English README](README.md)。
-
-两项现场兼容细节已处理：Kimi 0.41.0 的 `/plugins install` 应直接粘贴完整路径，即使路径有空格也不要加引号；zCode 这次 CLI 帮助列出了 `--max-turns`，实际解析却拒绝它，移除该参数后调用正常。这不是对这些宿主其他功能的审计。
+测试时还遇到两项兼容差异：Kimi TUI 把安装路径中的引号当成路径字符，直接粘贴不带引号的完整路径后成功；zCode 的 CLI 帮助列出了 `--max-turns`，实际解析却拒绝它，移除该参数后调用正常。这些仅是当时的观察，不外推到其他版本。
 
 ## 5. 实际验证与未通过的观察
 
@@ -130,11 +121,7 @@ Claude 和 zCode 的缓存目录名将 `+` 处理为 `-`，manifest 版本仍保
 
 该 Agent 执行的是资料研究、综合与自查。它没有调用其他 Agent、接触团队或实施两周试用；结论不代表真实多 Agent 相对效果或团队收益。本次共创中的实际独立审阅也不能替代这些未做的业务观察。
 
-本机本轮原始证据位于以下临时目录，关键观察已写入上文：
-
-- [首批四端调用](</var/folders/cm/zpwxmr512rq1qz4_0_ryz8t80000gn/T/deep-thinking-host-smoke-m_7edtqn/>)。
-- [修正版四端复查](</var/folders/cm/zpwxmr512rq1qz4_0_ryz8t80000gn/T/deep-thinking-host-regression-8hiw_0yo/>)。
-- [独立业务试用成果](</var/folders/cm/zpwxmr512rq1qz4_0_ryz8t80000gn/T/deep-thinking-business-trial-sqcc5svn/thinking/product-decision-trial/RESULT.md>)与[工作稿](</var/folders/cm/zpwxmr512rq1qz4_0_ryz8t80000gn/T/deep-thinking-business-trial-sqcc5svn/thinking/product-decision-trial/THOUGHTS.md>)。
+原始运行日志和受控案例产物保存在验证机器上，未随公开仓库发布。上文是观察摘要，不提供外部读者无法访问的本机临时路径；可按已描述的场景自行复测。
 
 ## 6. 交付边界
 
@@ -142,4 +129,4 @@ Claude 和 zCode 的缓存目录名将 `+` 处理为 `-`，manifest 版本仍保
 
 尚未证明的是：跨问题稳定判断质量、长期个人吸收和迁移、减少谄媚或幻觉的效果，以及相对普通对话或其他方法的优势。跨宿主桥的真实多 Agent 圆桌、停止时取消正在运行的外部进程、原生压缩恢复也没有在本轮穷尽测试；文件恢复说明不提供自动恢复能力。上文列出的 Claude 输出偏差仍是已观察到的限制。
 
-没有新增后台循环、hooks、MCP 服务或强制运行依赖；也没有提交、推送、对外发布或执行任何真实业务决策。后续迭代应由具体使用反馈或可复现失败驱动，本轮不会自动开始新的效果研究。
+没有新增后台循环、hooks、MCP 服务或强制运行依赖，也未执行任何真实业务决策。初次实现交付后，已按用户要求建立并推送 [公开仓库](https://github.com/rocky2431/deepthink-skill)。公开包去除了本机缓存构建时间戳、重复的目录版本字段和不可移植的路径说明，保留插件自身的发布版本与注明日期的验证环境。后续迭代应由具体使用反馈或可复现失败驱动。

@@ -20,7 +20,7 @@
 
 **当前入口：**Codex `$deep-thinking`；Claude Code `/deep-thinking:deep-thinking`；Kimi Code `/skill:deep-thinking`；zCode `/skill deep-thinking`。新会话读取安装后的版本，已有议题提供对应底稿。执行文件位于 [主 Skill](plugins/deep-thinking/skills/deep-thinking/SKILL.md)，调用方法见 [中文 README](README.zh-CN.md)。
 
-**本次结果：**[RESULT.md](RESULT.md)。实现和本地安装已交付，最终适配程度等待用户实际使用反馈；不据沉默记录接受，不自动展开新的研究或比较。未执行提交、推送或对外发布。
+**本次结果：**[RESULT.md](RESULT.md)。实现和本地安装已交付，随后已按用户要求提交并推送到 [公开仓库](https://github.com/rocky2431/deepthink-skill)。公开包不锁定宿主、模型、提供方或可选工具版本；安装位置由实际宿主管理，插件版本只标识自身发布。最终适配程度等待用户实际使用反馈；不据沉默记录接受，不自动展开新的研究或比较。
 
 共同创作仍是首个真实案例。用户对交流改善的反馈是个人适配证据；四 CLI 的受控案例是加载与行为观察，二者都不能替代长期效果比较。
 

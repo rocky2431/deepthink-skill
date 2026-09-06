@@ -4,15 +4,13 @@
     "name": "rocky2431"
   },
   "metadata": {
-    "description": "Deep Thinking: human-led inquiry with evidence and independent challenge",
-    "version": "0.1.0+codex.20260906011727"
+    "description": "Deep Thinking: human-led inquiry with evidence and independent challenge"
   },
   "plugins": [
     {
       "name": "deep-thinking",
       "source": "./plugins/deep-thinking",
       "description": "Human-led clarification, evidence research, independent challenge, and a defensible outcome with visible progress and ending.",
-      "version": "0.1.0+codex.20260906011727",
       "category": "productivity",
       "tags": [
         "thinking",

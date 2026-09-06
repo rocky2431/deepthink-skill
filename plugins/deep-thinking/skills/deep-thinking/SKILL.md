@@ -6,8 +6,6 @@ description: >
   distinctive alternatives, and deliver a defensible outcome through an ordered,
   revisable workflow. Use for sustained human-led inquiry, including requests for
   roundtables or adversarial examination within it; not routine factual lookups.
-metadata:
-  version: "0.1.0+codex.20260906011727"
 ---
 
 # Deep Thinking

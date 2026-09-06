@@ -5,8 +5,7 @@
 Deep Thinking is a human-led inquiry skill for Codex, Claude Code, native Kimi
 Code, and zCode. It combines Clear My Mind and Deep Research: clarify the question,
 investigate evidence, develop distinctive alternatives, examine a candidate, and
-deliver a defensible result. Base version: **0.1.0**; see the [delivery record](RESULT.md)
-for the installed local build.
+deliver a defensible result.
 
 ## Use
 
@@ -39,13 +38,26 @@ and its only Skill are both named `deep-thinking`. Install the plugin once per
 host; do not also copy it into a user Skill directory or add forwarding commands.
 Host-native invocation spelling can differ.
 
-Set `REPO` below to the absolute path of this checkout. There is no published
-repository or remote marketplace prerequisite for this local package.
+Clone the public repository, then use the resulting checkout with each host's
+native plugin manager:
+
+```sh
+git clone https://github.com/rocky2431/deepthink-skill.git
+cd deepthink-skill
+DEEP_THINKING_REPO="$(pwd)"
+```
+
+No host, model, provider, or optional tool version is pinned. Use a host that
+supports native plugins and Skills, with your own model and provider settings.
+The commands below are examples; the installed host's help takes precedence.
+The version in each plugin manifest identifies this plugin's release, not a
+required host version. Catalogs resolve the package within the checkout without
+pinning a release tag or commit.
 
 ### Codex
 
 ```sh
-codex plugin marketplace add "$REPO"
+codex plugin marketplace add "$DEEP_THINKING_REPO"
 codex plugin add deep-thinking@rocky-deep-thinking
 codex plugin list --json
 ```
@@ -56,8 +68,8 @@ In a new session, invoke `$deep-thinking`. Codex uses the root
 ### Claude Code
 
 ```sh
-claude plugin validate "$REPO/plugins/deep-thinking" --json
-claude plugin marketplace add "$REPO"
+claude plugin validate "$DEEP_THINKING_REPO/plugins/deep-thinking" --json
+claude plugin marketplace add "$DEEP_THINKING_REPO"
 claude plugin install deep-thinking@rocky-deep-thinking
 claude plugin list --json
 ```
@@ -70,16 +82,15 @@ package's `skills/` through its native plugin layout. The repository includes a
 
 In the Kimi TUI, run `/plugins install` with the absolute local directory
 `<repo>/plugins/deep-thinking`, then `/reload`. Invoke `/skill:deep-thinking`.
-Paste the local path directly after `/plugins install`; Kimi Code 0.41.0 treats
-quote characters as part of that path, including when it contains spaces.
-These are TUI commands; the external CLI has no `kimi plugin`
-subcommand. The package uses `kimi.plugin.json` and the native managed plugin
-directory under `$KIMI_CODE_HOME` (default `~/.kimi-code`).
+If the TUI treats quotes as literal path characters, paste the full path without
+surrounding quotes, including when it contains spaces. These examples are TUI
+commands; follow your installed Kimi's plugin help. The package uses
+`kimi.plugin.json`; Kimi manages its installation location.
 
 ### zCode
 
-Open the sidebar's **Plugin Marketplace → Add plugin marketplace**, add this local
-repository directory, then find and install Deep Thinking in the **Personal** tab.
+Use zCode's native plugin marketplace to add this checkout, then find and install
+Deep Thinking. Follow the installed application's UI if navigation labels differ.
 Use the native `/skill` picker or `/skill deep-thinking`. The package includes
 `.zcode-plugin/plugin.json`. The native CLI's `plugins list --json` and
 `skills list --json` can verify discovery; the executable path depends on the
@@ -87,8 +98,9 @@ installation and need not be on `PATH`.
 
 After changes, refresh and reinstall the package through the host's native plugin
 manager, then use a new session. A source edit alone does not prove an installed
-cache was refreshed. See [the delivery record](RESULT.md) for the versions, exact
-checks, installation state, and remaining limits observed on this machine.
+cache was refreshed. See [the dated validation record](RESULT.md) for previously
+tested environments, observed behavior, and remaining limits. Those observations
+are not installation requirements or guarantees for every host version.
 
 ## Where the methods live
 

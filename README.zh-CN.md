@@ -3,7 +3,7 @@
 [English](README.md)
 
 用于 Codex、Claude Code、原生 Kimi Code 和 zCode 的人机共同思考 Skill。
-基础版本为 **0.1.0**，本机安装构建见 [交付记录](RESULT.md)。它将 Clear My Mind 与 Deep Research 放在同一条
+它将 Clear My Mind 与 Deep Research 放在同一条
 可往返的路径中：先对齐需要的 Beta，再寻找值得研究的 Alpha，最终形成有依据、
 可修订、能够使用的成果。
 
@@ -37,23 +37,34 @@
 
 采用一个原生插件包、一个主 Skill：二者名称均为 `deep-thinking`。
 不要再添加同名用户 Skill 或转发命令，以免出现重复入口、旧版本遮蔽。
-以下 `<仓库绝对路径>` 指这个项目所在目录。
+先克隆公开仓库：
+
+```sh
+git clone https://github.com/rocky2431/deepthink-skill.git
+```
+
+以下 `<仓库绝对路径>` 指克隆后的项目目录。
+不锁定宿主、模型、提供方或可选工具的版本；使用具备原生插件和 Skill 能力的宿主，
+沿用你自己的模型与提供方配置。以下命令是示例，实际语法以已安装宿主的帮助为准。
+manifest 中的版本号仅用于识别本插件的发布版本，不是宿主版本要求。
+市场目录引用仓库内的插件路径，不固定 release tag 或提交。
 
 | CLI | 原生安装方式 | 调用入口 |
 | --- | --- | --- |
 | Codex | `codex plugin marketplace add <仓库绝对路径>`，再运行 `codex plugin add deep-thinking@rocky-deep-thinking` | 新会话中使用 `$deep-thinking` |
 | Claude Code | `claude plugin marketplace add <仓库绝对路径>`，再运行 `claude plugin install deep-thinking@rocky-deep-thinking` | `/deep-thinking:deep-thinking` |
 | 原生 Kimi Code | 在 TUI 中使用 `/plugins install <仓库绝对路径>/plugins/deep-thinking`，然后 `/reload` | `/skill:deep-thinking` |
-| zCode | 打开侧栏“插件市场”→“添加插件市场”，添加本仓库目录，在“个人”中找到 Deep Thinking 并安装 | 原生 `/skill` 选择器或 `/skill deep-thinking` |
+| zCode | 使用原生插件市场添加本仓库目录，找到 Deep Thinking 并安装；导航名称以当前应用界面为准 | 原生 `/skill` 选择器或 `/skill deep-thinking` |
 
-Shell 里的路径参数含空格时需加引号。Kimi Code 0.41.0 的 TUI 安装命令是例外：
-直接粘贴完整路径，不加引号；原生解析器会把引号当作路径字符。它的插件命令位于 TUI，
-不能照搬为外部 `kimi plugin` 子命令。zCode 的 CLI 不一定在 PATH 中。
+Shell 里的路径参数含空格时需加引号。如果 Kimi TUI 把引号当成路径字符，
+请直接粘贴完整路径，不加引号，即使路径含空格。上例是 TUI 命令，
+请按已安装 Kimi 的插件帮助使用。zCode 的 CLI 不一定在 PATH 中。
 四种 manifest 共同引用包内同一份 `skills/deep-thinking`，不会维护四份分叉内容。
 
 改动源文件之后，需要通过宿主原生插件管理刷新并重新安装，再在新会话使用。
 源码正确、插件列表出现、实际调用成功是不同层次的证据。
-本机当前安装版本、验证结果和局限见 [交付记录](RESULT.md)。
+曾测试的环境、实际观察和局限见 [注明日期的验证记录](RESULT.md)，
+这些记录不是安装版本要求，也不保证所有宿主版本都有相同表现。
 
 ## 论文和方法融入在哪里
 

@@ -16,16 +16,14 @@ and roundtables are parts of this skill; they do not need separate aliases.
 | zCode | `/skill deep-thinking`, or select it in the Skill picker |
 
 Confirm discovery in the actual host. Resolve references and templates from the
-loaded skill directory, not from the inquiry's working directory. Host-reported
-locations take precedence over these native plugin storage defaults:
-
-- Codex: `${CODEX_HOME:-$HOME/.codex}/plugins/cache/`.
-- Claude Code: `$HOME/.claude/plugins/cache/` with the default configuration home.
-- Kimi Code: `${KIMI_CODE_HOME:-$HOME/.kimi-code}/plugins/managed/`.
-- zCode: `$HOME/.zcode/cli/plugins/cache/`.
-
+loaded skill directory, not from the inquiry's working directory or a guessed
+cache path. Follow the installed host's help when its command syntax differs.
 Do not assume a particular executable path or manually edit installed caches.
-Installation procedures and measured host versions belong in the package README.
+Installation procedures belong in the package README.
+
+This skill does not pin host, model, provider, or optional tool versions. Use the
+host's configured model and provider unless the user requests a different choice.
+Select tools by their available capabilities and current contracts.
 
 ## Select available capabilities
 

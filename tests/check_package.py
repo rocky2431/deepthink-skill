@@ -18,6 +18,7 @@ def main():
     manifests = [json.loads(path.read_text()) for path in manifest_paths]
     version = manifests[0]["version"]
     assert re.fullmatch(r"\d+\.\d+\.\d+(?:\+[0-9A-Za-z.-]+)?", version), version
+    assert "+codex." not in version, "Local cachebuster must not become the public release version"
     for path, manifest in zip(manifest_paths, manifests):
         assert manifest["name"] == plugin.name, path
         assert manifest["version"] == version, path
@@ -28,7 +29,6 @@ def main():
     assert list(plugin.rglob("SKILL.md")) == [skill / "SKILL.md"]
     entry = (skill / "SKILL.md").read_text()
     assert re.search(r"(?m)^name: deep-thinking$", entry)
-    assert f'  version: "{version}"' in entry
 
     codex_catalog = json.loads((root / ".agents/plugins/marketplace.json").read_text())
     claude_catalog = json.loads((root / ".claude-plugin/marketplace.json").read_text())
@@ -37,11 +37,11 @@ def main():
         assert [item["name"] for item in catalog["plugins"]] == [plugin.name]
     assert codex_catalog["plugins"][0]["source"]["path"] == "./plugins/deep-thinking"
     assert claude_catalog["plugins"][0]["source"] == "./plugins/deep-thinking"
-    assert claude_catalog["metadata"]["version"] == version
-    assert claude_catalog["plugins"][0]["version"] == version
+    assert "version" not in claude_catalog["metadata"]
+    assert "version" not in claude_catalog["plugins"][0]
 
     links = 0
-    for path in plugin.rglob("*"):
+    for path in [*plugin.rglob("*"), *root.glob("*.md")]:
         assert not path.is_symlink(), path
         if not path.is_file():
             continue
@@ -59,7 +59,8 @@ def main():
             if not relative:
                 continue
             destination = (path.parent / relative).resolve()
-            assert destination.is_relative_to(plugin.resolve()), (path, target)
+            boundary = plugin if path.is_relative_to(plugin) else root
+            assert destination.is_relative_to(boundary.resolve()), (path, target)
             assert destination.exists(), (path, target)
             links += 1
     assert (skill / "assets/thoughts-template.md").is_file()
