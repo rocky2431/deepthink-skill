@@ -1,0 +1,20 @@
+{
+  "name": "deep-thinking",
+  "version": "0.1.0+codex.20260906011727",
+  "description": "Human-led clarification, evidence research, independent challenge, and a defensible outcome with visible progress and ending.",
+  "author": {
+    "name": "rocky2431"
+  },
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Deep Thinking",
+    "shortDescription": "Clarify, research, challenge, and form a defensible view",
+    "longDescription": "A human-led inquiry workflow for Codex, Claude Code, Kimi Code, and zCode. Clarify intent, examine evidence and competing explanations, seek Alpha on a dependable Beta, and deliver an independent result with clear conditions. Includes method references and inquiry templates; no background runner or mandatory external service.",
+    "developerName": "rocky2431",
+    "category": "Productivity",
+    "capabilities": [
+      "Skills"
+    ],
+    "defaultPrompt": "Use $deep-thinking to work through my question, investigate pivotal evidence, and deliver a defensible outcome."
+  }
+}
