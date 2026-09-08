@@ -16,7 +16,7 @@ Use it for questions that need sustained discussion and investigation, such as
 assessing a product direction or examining a strongly held view. Routine factual
 questions can go directly to your agent.
 
-Version: 0.1.2. The plugin contains a Skill, references and templates. Your host
+Version: 0.2.0. The plugin contains a Skill, references and templates. Your host
 provides the model and tools.
 
 - [Install and start](#install-and-start)
@@ -166,8 +166,10 @@ into a decision memo."
 
 ## Files and progress
 
-Each sustained inquiry uses its existing directory or, by default,
-`<workspace>/thinking/<topic>/`. The agent states the actual location at the
+Each sustained inquiry reuses its existing directory. For new inquiries, follow
+the requested location or the project’s existing `docs/` / `documents/` convention;
+with no convention, `<workspace>/documents/<topic>/`. Existing `thinking/` inquiries
+stay in place. The agent states the actual location at the
 start and keeps the inquiry's material outside the reusable plugin package.
 
 | File | Contents |

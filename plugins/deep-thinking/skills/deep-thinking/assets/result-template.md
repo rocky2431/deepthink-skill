@@ -26,3 +26,23 @@ State prerequisites, pivotal unknowns, and what would change the conclusion. For
 actionable proposal, identify a feasible next test with observable outcomes. An
 external test still to do is not a completed verification. Omit new actions when the
 current purpose is already fulfilled or the user asked to stop without further work.
+
+## Execution handoff (only for an actionable result)
+
+Reuse an existing specification instead of writing it again. Preserve the source
+acceptance IDs, requirement meanings, boundaries and evidence conditions. If none
+exist, assign stable IDs to the observable outcomes needed for execution.
+Keep this table's requirement IDs unchanged from the source. Describe test cases in
+the evidence column; label stricter policies and implementation choices as proposals
+outside the requirement table, unless the owner already accepted them.
+
+| ID | Required outcome and pass condition | Evidence or independent check |
+|---|---|---|
+| A1 | Describe an observable result, not a prescribed work step. | Name how it will be checked. |
+
+State exclusions, confirmed constraints, unresolved decisions and their owners.
+Separate granted implementation authority from a proposal; delivering this result
+does not authorize execution. Identify the actual workspace, source documents,
+relevant revision and uncommitted files, and one useful next action. Name an existing
+execution-state record if there is one; no receiving Skill or extra file is required.
+Remove this section for a non-actionable inquiry.

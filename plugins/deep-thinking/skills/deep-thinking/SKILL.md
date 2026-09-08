@@ -63,8 +63,10 @@ finding or a claim that business feasibility has been established.
 ## Keep two business artifacts
 
 Keep session content outside this reusable skill package. Reuse an existing inquiry
-directory and draft. Otherwise use `<workspace>/thinking/<topic>/`, choosing a clear
-topic name and distinguishing collisions without overwriting another inquiry. If
+directory and draft. For new work, use the explicitly requested path, then the
+project's established business-document directory (such as `docs/` or `documents/`);
+with no convention, use `<workspace>/documents/<topic>/`. Keep existing `thinking/`
+inquiries where they are. Distinguish collisions without overwriting another inquiry. If
 there is no writable workspace, agree on an available destination or provide the
 content in the conversation and state that no files were saved.
 
@@ -84,6 +86,24 @@ remove instructions and unused placeholders. Each stage produces an update in th
 draft and a useful conversational synthesis, not a separate mandatory report.
 Add raw material, data, or a requested output format only when it has a concrete
 use; link it from the draft. Do not create permanent files for every agent or turn.
+
+When an actionable result will be handed to execution, include a short handoff in
+`RESULT.md`: intended outcome and exclusions; observable acceptance conditions and
+their evidence; confirmed constraints and open decisions; source paths, workspace,
+revision or uncommitted artifacts, and the next useful action. Preserve existing
+acceptance IDs and meanings; assign stable IDs only where none exist. Distinguish
+owner requirements and existing authorization from proposals still awaiting a decision.
+Keep test cases in the evidence column or a separate check description, not as extra
+acceptance requirements. A stricter input policy or implementation recommendation is
+a proposal until accepted; do not silently expand the upstream requirement set.
+Delivery is not acceptance or permission to execute. Research-only results need
+support, counterevidence and applicability checks, not invented software tests.
+
+No other Skill is required. An ordinary agent, Task State, UltraGoal or a delegated
+worker can consume the same result. Hand over its actual path and relevant sources;
+the receiver reads and checks settled terms before asking again. Keep research history
+in this draft and let one chosen record own subsequent execution state. Do not start
+another workflow automatically or duplicate its progress inside the inquiry draft.
 
 Attribute user statements, assistant proposals, source observations, and inferences.
 Treat supplied statements as case premises unless independently verified. Missing
