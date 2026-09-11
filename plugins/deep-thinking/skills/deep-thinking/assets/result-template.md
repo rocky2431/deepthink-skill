@@ -14,6 +14,8 @@ Describe the current scope and relevant conditions; do not invent owner acceptan
 Explain the decisive reasoning and cite directly inspected sources near the claims
 they support. Keep source observations, applicability assumptions, and inferences
 distinct. The result must be understandable without reading the conversation.
+Explain the premise connecting decisive evidence to the conclusion; carry its
+conditions and uncertainty with the claim wherever it is summarized or handed off.
 
 ## Alternatives and objections
 
@@ -41,6 +43,9 @@ outside the requirement table, unless the owner already accepted them.
 | A1 | Describe an observable result, not a prescribed work step. | Name how it will be checked. |
 
 State exclusions, confirmed constraints, unresolved decisions and their owners.
+Keep examples and tentative means labelled; neither becomes an accepted requirement
+through compression or handoff. Preserve key owner wording and corrections by reference
+or short exact excerpt, separately from the operational interpretation.
 Separate granted implementation authority from a proposal; delivering this result
 does not authorize execution. Identify the actual workspace, source documents,
 relevant revision and uncommitted files, and one useful next action. Name an existing

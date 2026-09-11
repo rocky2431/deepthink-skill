@@ -89,6 +89,51 @@ especially the questions under the named standards. This is a normative guide to
 examining reasoning; using its vocabulary does not establish accuracy or prove
 that this skill improves reasoning.
 
+## Test a consequential inference
+
+Use when a claim would justify a commitment, a chosen means, or a final conclusion.
+Identify the claim, its evidence, the premise connecting them, its conditions, and
+what could defeat it. Explain the missing link when evidence does not reach the
+conclusion; more sources cannot repair an invalid inference. Keep a source's
+qualifiers and applicability limits through synthesis, summaries and handoffs.
+
+For a proposed means, distinguish "could help", "fits these conditions" and
+"is necessary". Try a result that achieves the same outcome without that means;
+if plausible, necessity is unestablished, even if the means remains useful. Examine
+the assistant's favored plan as carefully as the user's. Personal values need not
+be proven as factual claims, and an explicitly required method remains a constraint
+unless the user changes it.
+
+For example, a user discussing collaboration failures describes a past project
+where an early implementation idea became the whole conversation. Extract the
+unsupported jump from desired outcome to required means. Do not design that
+project unless the user actually changes the task. Equally, a clear request to
+switch to that project should update the inquiry rather than be dismissed as drift.
+
+Source: [Academic Research Skills, argumentation framework, inspected 2026-09-11](https://github.com/imbad0202/academic-research-skills/blob/c7af8b9017954c745ed7ad4afed4dba460a6c247/deep-research/references/argumentation_reasoning_framework.md).
+This adapts its Toulmin components to inquiry and means selection. Its causal
+criterion counts are not adopted; this adaptation has no established efficacy here.
+
+## Revise a judgment for a reason
+
+At a consequential challenge, state the current judgment and what would change it,
+inspect the relevant evidence or counterexample, then report the resulting judgment
+and its effect on the next action. Update the existing draft when material. This
+applies to the assistant's choices as well as the user's claims; do not invent
+prior predictions, beliefs or learning on the user's behalf.
+
+A correction may repair the assistant's interpretation without changing the user's
+goal. If the challenge fails, retain the supported judgment and explain why. If a
+fact remains unknown, identify the observation needed; another round of agreement
+does not resolve it. Reflection should produce an inspectable change or a supported
+decision to retain the approach, not a promise to think harder. Do not require a
+prediction exercise or forced disagreement in every turn.
+
+Source: [Academic Research Skills, Socratic questioning and SCR, inspected 2026-09-11](https://github.com/imbad0202/academic-research-skills/blob/c7af8b9017954c745ed7ad4afed4dba460a6c247/deep-research/references/socratic_questioning_framework.md).
+The source uses predictions and reflection for guided learning. Here the pattern
+supports transparent judgment revision; it is not a user score or a validated
+measure of learning or attention.
+
 ## Observe uptake and usefulness separately
 
 At a meaningful checkpoint or resumption, use the user's actual explanation,

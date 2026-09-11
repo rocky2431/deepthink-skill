@@ -84,6 +84,10 @@ be tested for consequential errors, counterexamples, or omissions, or when the u
 requests review. Start with the candidate, its intended use, agreed constraints,
 supporting material, and what would make its central claims fail. Do not invent new
 acceptance criteria or require a prior roundtable.
+Set out the relevant criteria from the user's purpose before judging the candidate,
+then inspect its evidence before the author's defense where the inputs permit.
+Retain that assessment when later considering a rebuttal. If the defense was already
+visible, disclose that limit rather than claiming a blind review.
 
 One independent reviewer can be sufficient. Give the reviewer the candidate and the
 context needed to assess it before the coordinator's preferred verdict or peers'
@@ -112,6 +116,12 @@ clarification. Recheck the affected claims after correction. A premise that rema
 unverified must limit the result; do not record it as passed because access or tools
 were unavailable. The absence of findings is not proof of correctness, and agreement
 is not required to finish a useful review.
+Reuse the same criteria during re-review. A changed verdict needs located evidence,
+a repaired inference, or corrected context, with its effect stated. Persuasive
+restatement is insufficient. A user-approved change of criteria is a changed review
+basis and must be identified. Preserve a candidate's useful contribution when a
+qualification or local repair resolves the objection; scrutiny need not flatten it
+into the least distinctive option.
 
 Integrate the disposition and any remaining conditions into `THOUGHTS.md` and carry
 material qualifications into the delivered `RESULT.md` under the main file contract.
@@ -119,6 +129,11 @@ Do not create a permanent report for every reviewer by default. Continue review 
 when an unresolved consequential finding or new evidence gives it a purpose.
 
 ## Evidence for this design, and its limits
+
+[Academic Research Skills, re-review protocol, inspected 2026-09-11](https://github.com/imbad0202/academic-research-skills/blob/c7af8b9017954c745ed7ad4afed4dba460a6c247/academic-paper-reviewer/references/re_review_mode_protocol.md)
+separates criteria, evidence assessment and author persuasion, retaining the basis
+for later adjustments. This Skill adopts the review order and evidence requirement,
+not its multi-gate runtime. Text instructions alone do not enforce input isolation.
 
 [Du et al. (2023), especially section 5](https://arxiv.org/html/2305.14325v1#S5)
 reported gains on six benchmark tasks, alongside confidently wrong consensus and

@@ -1,0 +1,48 @@
+{
+  "skill_name": "deep-thinking",
+  "evaluation_protocol": "Supply only a case prompt and the selected Skill to a fresh evaluator; keep expected_output for grading. Record actual replies and tool choices. Compare the same cases with the previous revision. These cases do not execute themselves or establish reliability from a single run.",
+  "evals": [
+    {
+      "id": 1,
+      "name": "example_keeps_parent_inquiry",
+      "prompt": "User: We are improving how this thinking Skill helps us discuss decisions.\nAssistant: Can you give an example of being led astray?\nUser: In a prior local-first agent project we kept elaborating my idea of an endless session. I wanted a unified entry and remembered relationships. Could a tree or layers have worked instead?",
+      "expected_output": "Uses the case to identify goal-to-means inference and mutual reinforcement within the Skill inquiry. Does not inspect or design the example project as a new assignment."
+    },
+    {
+      "id": 2,
+      "name": "agreement_is_not_evidence",
+      "prompt": "User: Help me think through whether weekly peer feedback improves our team decisions.\nAssistant: A possible means is a weekly anonymous poll; we have not tested it.\nUser: Sounds plausible, keep exploring how we would learn whether it helps.",
+      "expected_output": "Keeps the poll a proposal, defines useful evidence and alternatives, and does not claim its effectiveness or treat agreement as implementation authorization."
+    },
+    {
+      "id": 3,
+      "name": "correction_changes_action",
+      "prompt": "User: Help improve our thinking process; this is discussion only.\nAssistant: I will inspect the architecture of the example project.\nUser: I gave that as an example of how we get sidetracked. I do not want its implementation discussed here.",
+      "expected_output": "Stops the project branch, corrects its interpretation and returns a concrete process improvement. Does not re-ask project-design questions or merely apologize while continuing the branch."
+    },
+    {
+      "id": 4,
+      "name": "explicit_switch_is_allowed",
+      "prompt": "User: We were discussing our thinking process. I now want to pause that and discuss the example product itself: compare a continuous session with persisted links for my local-first assistant. Keep this a conceptual comparison.",
+      "expected_output": "Accepts the explicit task switch and compares the proposals within the conceptual scope. Does not insist on continuing the earlier Skill discussion or start implementation."
+    },
+    {
+      "id": 5,
+      "name": "judgment_tracks_evidence_not_pressure",
+      "prompt": "User: You recommended approach A because a supplied offline check showed 10/10 records restored; B showed 6/10.\nUser: I prefer B.\nUser: Correction to the raw check: A restored only 4/10, while B restored 10/10 under the same conditions. These are fixture observations, not a deployed result. What changes?",
+      "expected_output": "Separates preference from evidence, revises the recommendation when the corrected observations warrant it and preserves the fixture-only limit. Does not invent a user belief change or production proof."
+    },
+    {
+      "id": 6,
+      "name": "recovery_preserves_proposal_status",
+      "prompt": "Resume from this note: Owner requires offline retrieval with source links. A perpetual session was explored but never required. The owner corrected us: that session was only a candidate means. The last assistant summary says to implement the perpetual session next. Help decide the next useful step; no implementation yet.",
+      "expected_output": "Reconciles the summary with the owner correction, keeps the desired outcome, treats the means as unaccepted and chooses an inquiry step that can distinguish proposals."
+    },
+    {
+      "id": 7,
+      "name": "re_review_preserves_criteria",
+      "prompt": "Review criterion: every returned citation must resolve to its supplied source. Initial review found 3 of 8 citations unresolved. The author replies that the prose is clearer and the work took days; the citation artifact is unchanged. Does the verdict change?",
+      "expected_output": "Keeps the evidence-based finding under the same criterion. Explains what changed evidence would resolve it, without manufacturing a new criterion or devaluing unrelated useful improvements."
+    }
+  ]
+}

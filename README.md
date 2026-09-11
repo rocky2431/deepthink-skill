@@ -16,7 +16,7 @@ Use it for questions that need sustained discussion and investigation, such as
 assessing a product direction or examining a strongly held view. Routine factual
 questions can go directly to your agent.
 
-Version: 0.2.0. The plugin contains a Skill, references and templates. Your host
+Version: 0.2.1. The plugin contains a Skill, references and templates. Your host
 provides the model and tools.
 
 - [Install and start](#install-and-start)

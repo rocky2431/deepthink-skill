@@ -24,6 +24,10 @@ or permission at every step.
    Reuse the user's real case and already settled meanings, goals, and permissions.
    When resuming, reconcile the current request with the draft; it is context, not
    authority to restart work the user paused or ended.
+   Interpret a follow-up in the ongoing inquiry: an example, correction, objection,
+   proposed means, or actual change of task. A concrete question inside an example
+   does not by itself authorize investigating that example's project. Use clear
+   user steering to update the inquiry; do not hold them to an obsolete framing.
 2. Establish this inquiry's question, purpose, scope, intended deliverable, and what
    would make it useful enough to deliver. Infer these from existing context where
    clear. Ask one material question if a missing owner choice changes the work.
@@ -75,6 +79,8 @@ content in the conversation and state that no files were saved.
   purpose and output, stage, status, what is settled, material change, pivotal gaps,
   next action and reason, and result path. Below it maintain the problem structure,
   factor map, evidence, alternatives, judgments, meaningful revisions, and parked branches.
+  Preserve key owner wording and corrections separately from your interpretation;
+  keep examples and tentative means labelled when summarizing or resuming.
 - **`RESULT.md`** is the independent deliverable. Create it when delivering or ending,
   using [the result template](assets/result-template.md). Adapt it to the requested
   research report, decision memo, argument, article, or plan. Answer the original
@@ -151,7 +157,13 @@ Counts of questions, agents, sources, or completed headings are not measures of 
 Before deepening a branch, compare it with the other consequential gaps: how uncertain
 is it, and how could learning more change the overall understanding or choice? Use
 the [information-value heuristic](references/methods.md#value-of-information-choose-what-deserves-more-attention)
-qualitatively. An Alpha probe may expose a missing factor before its value is known.
+qualitatively. Before a new investigation or tool path, identify the unresolved
+judgment it serves and how different results could affect this inquiry's outcome.
+Topical similarity alone is insufficient; use existing evidence when it already
+settles the relevant point. An Alpha probe may expose a missing factor before its
+value is known: keep the probe bounded and reassess its connection afterward.
+If you followed the wrong branch, stop it, correct the current understanding and
+choose the next action from the restored question. An apology alone is not recovery.
 
 Converge a branch when it is supported for the present purpose, repeats known points,
 or needs different evidence. A stopped search does not settle its claim. Preserve a
@@ -217,6 +229,9 @@ Adapt to clarity, domain familiarity, and evidence on each branch. Confident wor
 does not prove a premise; unclear wording does not call for a beginner lecture.
 When the user is directive, retain their real goals while examining proposed means.
 When unclear, identify the missing concept and offer a concrete explanation or example.
+Before elaborating a consequential means, examine why it would serve the outcome
+and whether it is necessary, useful under conditions, or simply one option. Use
+[inference checks and judgment revision](references/methods.md#test-a-consequential-inference).
 
 Make a useful contribution, then ask one focused question only when a missing user
 judgment changes the next step. Wait for that answer before dependent work. Do not
@@ -230,6 +245,9 @@ its consequence, and a feasible repair or missing evidence. Match scrutiny to th
 idea's maturity and stakes. Impartiality does not require equal weight or compromise.
 Revise for evidence, corrected context, or a reasoning error, explaining what changed;
 do not reverse to please the user or stay rigid to perform independence.
+Repeated discussion or mutual agreement does not add evidence or turn an assistant
+proposal into an owner requirement. Record a changed judgment with its actual basis
+and consequence; preserve a supported judgment when the challenge does not defeat it.
 
 Personal fit feedback, factual reliability, learning, transfer, and comparative
 performance are different observations. Neither pleasant interaction nor a paper

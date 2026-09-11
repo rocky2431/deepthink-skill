@@ -5,7 +5,7 @@
 
 ## Current position
 
-- Question and purpose:
+- Question and purpose: key owner wording and corrections, then current interpretation:
 - Scope, intended deliverable, and sufficient outcome:
 - Stage: Frame / Clarify / Research / Synthesize / Check / Deliver
 - Status: active / waiting_user / waiting_evidence / delivered / paused / ended
@@ -19,7 +19,9 @@
 
 Preserve the user's meanings and goals, the focal subject and environment, current
 explanations, options, and consequential assumptions. Attribute proposals and open
-interpretations. Keep current conclusions distinct from superseded judgments.
+interpretations. Distinguish desired outcomes and confirmed constraints from examples
+and candidate means; repetition does not change their status. Keep current conclusions
+distinct from superseded judgments.
 
 ## Factors and evidence
 
@@ -37,7 +39,8 @@ disagreements and the evidence or conditions that could resolve them.
 
 ## Meaningful changes and parked branches
 
-Record what changed, who supplied the reason, and what prompted revision. Record
+Record the prior judgment, evidence or correction, resulting judgment, and consequence
+for the approach or next action. Record
 user uptake only from their actual explanation or use. Park a branch with its
 useful idea and a reason to reopen; do not retain every conversational turn.
 
