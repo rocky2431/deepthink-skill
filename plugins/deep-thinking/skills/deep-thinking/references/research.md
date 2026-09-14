@@ -7,10 +7,12 @@ This part works iteratively with Clear My Mind: evidence can revise the question
 ## Input and place in the workflow
 
 Start from the live question, purpose, goals and constraints, current explanations,
-consequential unknowns, and intended output in the existing `THOUGHTS.md` or conversation.
+consequential unknowns, and intended output in the selected working record or conversation.
 Follow the topic and file paths established by [the main workflow](../SKILL.md).
-Research develops a factor and evidence map, returns useful batches to `THOUGHTS.md`,
-and supplies the supported material for synthesis into `RESULT.md` at delivery.
+Research develops a factor and evidence map, returns useful batches to the working record,
+and supplies supported material for the independently understandable result at delivery.
+Use the entrypoint's content roles: standalone defaults are `THOUGHTS.md` and `RESULT.md`;
+bounded embedded inquiries may reuse suitable sections instead of creating those files.
 Do not create a separate research database or a lasting report for every agent or batch.
 Respect an agreed conversation-only or alternative output arrangement.
 
@@ -87,7 +89,7 @@ outline when evidence reveals a more useful relationship or problem definition.
 When discussion repeats known points or an Alpha probe could broaden the inquiry,
 inspect relevant material already retrieved but not yet used: it may expose a missing
 factor, connection, or question. Explain the proposed addition and let user steering
-change the focus. A table or outline in `THOUGHTS.md` can serve this shared structure.
+change the focus. A table or outline in the working record can serve this shared structure.
 
 Source: [Co-STORM, sections 3.1–3.5 and 6](https://arxiv.org/abs/2408.15232) describes
 a shared mind map connected to retrieved information, questions from unused material,
@@ -202,7 +204,7 @@ challenges, and which factor gaps it closes or reveals in the whole inquiry. Sho
 the next transition: investigate a pivotal gap, compare alternatives, or converge.
 Cite sources near claims and mark proposed revisions as yours.
 
-Update `THOUGHTS.md` after a material batch: preserve the research question or claim,
+Update the selected working record after a material batch: preserve the research question or claim,
 direct source and date, actual observation, applicability assumptions, support and
 counterevidence, effect on the judgment, and the remaining gap or next transition.
 Reuse the existing factor and evidence entries rather than transcribing all results.
@@ -242,6 +244,6 @@ At synthesis, turn the updated account into a candidate outcome for the agreed
 purpose. A mature candidate can enter [adversarial review](roundtable.md#review-a-mature-candidate)
 without first holding a roundtable. At delivery, synthesize the supported conclusion,
 decisive evidence, alternatives, qualifications, and material unresolved issues into
-`RESULT.md` under the main file contract. A conditional or interim result must retain
+the result content under the main file contract. A conditional or interim result must retain
 that status. The result should stand on its own; the working history stays in
-`THOUGHTS.md`. A research batch alone does not close the whole inquiry.
+the working record. A research batch alone does not close the whole inquiry.

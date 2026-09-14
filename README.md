@@ -16,7 +16,7 @@ Use it for questions that need sustained discussion and investigation, such as
 assessing a product direction or examining a strongly held view. Routine factual
 questions can go directly to your agent.
 
-Version: 0.2.1. The plugin contains a Skill, references and templates. Your host
+Version: 0.3.0. The plugin contains a Skill, references and templates. Your host
 provides the model and tools.
 
 - [Install and start](#install-and-start)
@@ -177,9 +177,11 @@ start and keeps the inquiry's material outside the reusable plugin package.
 | `THOUGHTS.md` | Working draft: current stage and status, problem structure, evidence, alternatives, judgments, meaningful revisions and unresolved branches |
 | `RESULT.md` | Deliverable: report, decision memo, argument or plan, with key citations, conditions, limits and any necessary next step |
 
-The agent creates the draft when the inquiry starts and writes the result when
-delivering or ending. Both use your chosen language. Stage updates go into the
-draft; separate reports for each stage or contributor are unnecessary.
+These are standalone defaults. Keep the selected record, reuse fitting documents or
+sections, and create files only when needed. A bounded embedded inquiry can share
+research and result sections; independently delivered or versioned results retain
+their own files. An adopted `RESULT.md` can remain the plan without another copy.
+Both content roles use your chosen language. Stages need no separate reports.
 
 Progress updates explain what is settled and why, what remains open and the next useful action.
 The agent delivers when the agreed purpose has a supported answer. Delivery

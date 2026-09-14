@@ -32,7 +32,7 @@ or permission at every step.
    would make it useful enough to deliver. Infer these from existing context where
    clear. Ask one material question if a missing owner choice changes the work.
    Never silently narrow the user's objective to declare an easier version complete.
-3. Locate or create the inquiry files below. State the actual location, current
+3. Locate or create the inquiry content below. State the actual location, current
    stage, and next useful move. Do requested, authorized writing before returning
    to an interview. Keep unrelated user files and inquiries intact.
 
@@ -64,7 +64,24 @@ follow the user's preferred conclusion or fit a stage label. A missing observati
 can warrant a conditional recommendation or a precise disagreement, not an invented
 finding or a claim that business feasibility has been established.
 
-## Keep two business artifacts
+## Preserve working reasoning and a usable result
+
+These are two content roles, not two mandatory new files. Keep the explicitly
+selected record, then reuse a suitable existing document or section; use the
+standalone defaults below only when neither exists. A bounded inquiry inside a
+task can use its research and result sections. Create a separate draft when the
+branch has its own question, evidence or lifecycle; it tracks that branch, while
+the main task only references its relevance, handoff and integrated findings.
+Match the task's identity and scope, not modification time or installed Skills.
+
+Preserve owner intent above the chosen approach, and the approach above current
+progress. Where applicable, link the adopted upstream direction, plan/milestone
+and current accepted terms with their source date or revision. These are scope
+relationships, not required files or assignments of one Skill to each time horizon.
+An accepted result can already be the plan; do not copy it into another plan.
+Small tasks need no invented North Star or roadmap. New evidence changes supported
+judgments and authorized means; only explicit owner steering changes the purpose,
+scope or success criteria. Revisit affected work, preserving still-valid evidence.
 
 Keep session content outside this reusable skill package. Reuse an existing inquiry
 directory and draft. For new work, use the explicitly requested path, then the
@@ -74,18 +91,20 @@ inquiries where they are. Distinguish collisions without overwriting another inq
 there is no writable workspace, agree on an available destination or provide the
 content in the conversation and state that no files were saved.
 
-- **`THOUGHTS.md`** is the working document. Create it on entry using
+- **Working reasoning**, standalone default **`THOUGHTS.md`**: initialize when needed using
   [the draft template](assets/thoughts-template.md). Keep its top current: question,
   purpose and output, stage, status, what is settled, material change, pivotal gaps,
   next action and reason, and result path. Below it maintain the problem structure,
   factor map, evidence, alternatives, judgments, meaningful revisions, and parked branches.
   Preserve key owner wording and corrections separately from your interpretation;
   keep examples and tentative means labelled when summarizing or resuming.
-- **`RESULT.md`** is the independent deliverable. Create it when delivering or ending,
+- **An independently understandable result**, standalone default **`RESULT.md`**: deliver when ready or ending,
   using [the result template](assets/result-template.md). Adapt it to the requested
   research report, decision memo, argument, article, or plan. Answer the original
   question with reasons, key citations, alternatives where relevant, conditions,
   limitations, and necessary next steps. A reader need not reconstruct the dialogue.
+  Use a separate file for an independently delivered, large or separately versioned
+  result; a clear section suffices for a bounded embedded finding.
 
 Write both in the user's chosen language. Adapt template sections to the purpose;
 remove instructions and unused placeholders. Each stage produces an update in the
@@ -94,22 +113,33 @@ Add raw material, data, or a requested output format only when it has a concrete
 use; link it from the draft. Do not create permanent files for every agent or turn.
 
 When an actionable result will be handed to execution, include a short handoff in
-`RESULT.md`: intended outcome and exclusions; observable acceptance conditions and
+the result: intended outcome and exclusions; observable acceptance conditions and
 their evidence; confirmed constraints and open decisions; source paths, workspace,
 revision or uncommitted artifacts, and the next useful action. Preserve existing
-acceptance IDs and meanings; assign stable IDs only where none exist. Distinguish
+accepted IDs and meanings. In a requested contract or plan, assign IDs to outcomes
+faithfully supported by the owner's request; otherwise new execution criteria remain
+proposals, not a Required outcomes table. Distinguish
 owner requirements and existing authorization from proposals still awaiting a decision.
 Keep test cases in the evidence column or a separate check description, not as extra
 acceptance requirements. A stricter input policy or implementation recommendation is
 a proposal until accepted; do not silently expand the upstream requirement set.
+Requirement IDs describe requested outcomes, not the chosen implementation. Keep a
+recommended means or a test beyond the accepted scope outside the requirement table;
+do not make adopting it a prerequisite for already authorized work. When the owner
+has not adopted additional criteria, label them as proposed criteria.
 Delivery is not acceptance or permission to execute. Research-only results need
 support, counterevidence and applicability checks, not invented software tests.
 
 No other Skill is required. An ordinary agent, Task State, UltraGoal or a delegated
 worker can consume the same result. Hand over its actual path and relevant sources;
 the receiver reads and checks settled terms before asking again. Keep research history
-in this draft and let one chosen record own subsequent execution state. Do not start
-another workflow automatically or duplicate its progress inside the inquiry draft.
+in its source and let one chosen record and writer own the task's current state.
+Task State can maintain this draft's Current position without a parallel ledger;
+UltraGoal can retain the selected record instead of taking it over when armed.
+Choose one recovery provider for the same task using existing explicit session
+bindings; a state document's location does not choose its recovery provider.
+Other sessions retain their selections. Do not start another workflow automatically,
+retemplate borrowed documents, change frozen terms or duplicate the main task's progress.
 
 Attribute user statements, assistant proposals, source observations, and inferences.
 Treat supplied statements as case premises unless independently verified. Missing

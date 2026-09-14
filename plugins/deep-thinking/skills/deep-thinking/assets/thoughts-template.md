@@ -1,9 +1,16 @@
 # Inquiry working draft
 
 <!-- Write in the user's language. Replace these prompts with actual content;
-     remove unused sections. This is a working structure, not a per-turn form. -->
+     remove unused sections. Reuse an existing inquiry/task section before creating
+     this standalone draft. Preserve borrowed headings and editing boundaries.
+     This is a working structure, not a per-turn form. -->
 
 ## Current position
+
+<!-- Where applicable, name adopted direction, plan/milestone, accepted terms and
+     the current-state record by accessible path/section and source date/revision.
+     Omit absent layers. A research branch keeps only its own position here;
+     reference the main task's state instead of copying its progress. -->
 
 - Question and purpose: key owner wording and corrections, then current interpretation:
 - Scope, intended deliverable, and sufficient outcome:

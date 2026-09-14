@@ -54,7 +54,7 @@ agent-delegate submit --to <target> --cwd <absolute-inquiry-root> --task "<missi
 agent-delegate wait --id <delegation_id> --timeout 30
 ```
 
-Submit once and retain the full returned ID with its branch in `THOUGHTS.md`, or in
+Submit once and retain the full returned ID with its branch in the selected working record, or in
 the conversation when files are not being maintained. Use `--task-file` for a longer
 mission when useful. A successful command exit does not establish task success.
 Read each result: `terminal: false` or `wait_timed_out: true` means observe the same
@@ -72,7 +72,7 @@ the worker stopped. Integrate returned reasoning and verify consequential eviden
 
 ## Recover and stop
 
-After context loss or handoff, read the intended inquiry's current `THOUGHTS.md`,
+After context loss or handoff, read the intended inquiry's selected working record,
 relevant evidence, result path, and retained worker IDs. Reconcile them with the live
 request. A saved task does not authorize restarting a paused or ended inquiry.
 This skill provides file-based recovery instructions; it does not supply hooks,

@@ -123,8 +123,9 @@ basis and must be identified. Preserve a candidate's useful contribution when a
 qualification or local repair resolves the objection; scrutiny need not flatten it
 into the least distinctive option.
 
-Integrate the disposition and any remaining conditions into `THOUGHTS.md` and carry
-material qualifications into the delivered `RESULT.md` under the main file contract.
+Integrate the disposition and remaining conditions into the selected working record;
+carry material qualifications into the independently understandable result under the
+main file contract. Reuse embedded sections when they own these content roles.
 Do not create a permanent report for every reviewer by default. Continue review only
 when an unresolved consequential finding or new evidence gives it a purpose.
 
