@@ -46,20 +46,16 @@ claiming an equivalent result. Do not install providers or runtimes implicitly.
 
 ## Submit, observe, and continue
 
-These are native bridge commands; use the installed skill and CLI help if they differ:
-
-```sh
-agent-delegate list --json
-agent-delegate submit --to <target> --cwd <absolute-inquiry-root> --task "<mission>"
-agent-delegate wait --id <delegation_id> --timeout 30
-```
+The loaded Agent Delegation Skill owns the commands: where its script lives, how to
+submit, and how this host receives completion. Follow its current instructions rather
+than a remembered command line. Prefer its host completion notification over repeated
+observation; do not poll with timed waits.
 
 Submit once and retain the full returned ID with its branch in the selected working record, or in
-the conversation when files are not being maintained. Use `--task-file` for a longer
-mission when useful. A successful command exit does not establish task success.
-Read each result: `terminal: false` or `wait_timed_out: true` means observe the same
-ID again; an observation timeout is not cancellation and must not trigger resubmission.
-`status --id <delegation_id>` retrieves immediate progress or the completed result.
+the conversation when files are not being maintained. A longer mission can go in a task
+file. A successful command exit does not establish task success. Read each returned
+result: a non-terminal state or an expired observation means the same task is still
+running; an observation timeout is not cancellation and must not trigger resubmission.
 If the submit response is lost, recover its ID from the receipt before retrying.
 
 Omit `--session` for independent tasks, including several tasks sent to one target.
@@ -79,8 +75,8 @@ This skill provides file-based recovery instructions; it does not supply hooks,
 guarantee automatic compaction recovery, or schedule background continuation.
 
 When the user stops the inquiry, stop dispatching and use actual cancellation tools
-for its active workers. With the bridge, call `agent-delegate cancel --id <delegation_id>`,
-then inspect that ID with `status` or `wait`. Acknowledgment is not proof of stopping;
+for its active workers. With the bridge, cancel each retained ID as its loaded Skill
+describes, then observe that ID until the outcome is known. Acknowledgment is not proof of stopping;
 report an unresolved outcome honestly. A native cancelled turn may leave spawned
 commands running: inspect and stop this task's jobs through available native controls
 when required, without disturbing other tasks. Preserve the partial result and limits
