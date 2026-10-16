@@ -2,7 +2,7 @@
 name: deep-thinking
 description: >
   Think with the user through an unclear idea, strongly held view, research
-  question, or decision. Clarify their thinking, investigate evidence, develop
+  question, or decision. Ask focused questions, work from their answers, investigate evidence, develop
   distinctive alternatives, and deliver a defensible outcome through an ordered,
   revisable workflow. Use for sustained human-led inquiry, including requests for
   roundtables or adversarial examination within it; not routine factual lookups.
@@ -18,6 +18,39 @@ new ideas and independent judgments; actively investigate facts rather than maki
 the user supply everything. Keep the process human-led without requiring a question
 or permission at every step.
 
+## Start with the user's reasoning
+
+When the user wants to think something through together, begin with their current
+view and reasons. An unexplained premise, unclear concept, or consequential
+tradeoff can warrant a question even when requirements and permissions are clear.
+Infer the requested interaction from the conversation: a direct request for
+research, a comparison, a recommendation or a finished document can proceed without
+an interview. Do not impose a mode picker or turn a request to think into permission
+to decide for the user.
+
+1. Reuse the reasoning already given. Find the consequential gap and ask one
+   focused, open question that the user can answer from their view or experience.
+   Explain a missing concept briefly if needed to make the question answerable.
+   Do not replace their attempt with your complete analysis or a solution menu.
+2. **End the response at the question and wait for the user's actual reply.**
+   Do not answer it yourself, assume a likely answer, or append a recommendation,
+   plan, summary or offer afterward. A question tool that returns immediately is
+   not a user answer; end the turn instead of continuing the dependent branch.
+3. Work from the reply: explain what it establishes and what remains uncertain,
+   then investigate a fact, explain a concept, test an inference, offer a new
+   perspective or ask the next consequential question. Different reasons should
+   change the next contribution; do not walk the user toward a hidden conclusion.
+4. Teach unfamiliar knowledge directly and investigate external facts yourself.
+   Do not repeatedly demand guesses, treat a short reply as incompetence, or turn
+   every explanation into a quiz. Flag concrete errors and contribute independent
+   ideas; asking questions does not require withholding useful evidence.
+5. Synthesize when the relevant reasoning and evidence support it, or when the user
+   asks to converge or receive a direct answer. Skip questions already answered.
+   Agreement alone does not demonstrate understanding or authorize implementation.
+
+Use [guided discovery examples](references/methods.md#guided-discovery-turn-answers-into-understanding)
+when choosing the next conversational move. No fixed number of questions is required.
+
 ## Enter or resume an inquiry
 
 1. Read the live request and any supplied inquiry draft before asking for context.
@@ -32,8 +65,9 @@ or permission at every step.
    would make it useful enough to deliver. Infer these from existing context where
    clear. Ask one material question if a missing owner choice changes the work.
    Never silently narrow the user's objective to declare an easier version complete.
-3. Locate or create the inquiry content below. State the actual location, current
-   stage, and next useful move. Do requested, authorized writing before returning
+3. Reuse the inquiry content below when continuity or the deliverable needs it.
+   Do not delay a useful first question to initialize a full draft. State the actual
+   location when saving content. Do requested, authorized writing before returning
    to an interview. Keep unrelated user files and inquiries intact.
 
 ## Follow the working sequence
@@ -98,6 +132,9 @@ content in the conversation and state that no files were saved.
   factor map, evidence, alternatives, judgments, meaningful revisions, and parked branches.
   Preserve key owner wording and corrections separately from your interpretation;
   keep examples and tentative means labelled when summarizing or resuming.
+  While waiting, retain the exact pending question and the reasoning already given.
+  On resumption, incorporate a new answer or return to that question; never invent
+  the answer or repeat an already answered opening question.
 - **An independently understandable result**, standalone default **`RESULT.md`**: deliver when ready or ending,
   using [the result template](assets/result-template.md). Adapt it to the requested
   research report, decision memo, argument, article, or plan. Answer the original
@@ -166,7 +203,7 @@ Use one current stage and one status in the draft:
 | Status | Meaning and next action |
 | --- | --- |
 | `active` | Work can proceed within the accepted scope. |
-| `waiting_user` | A specific owner meaning, value, constraint, or choice blocks a dependent step. Ask one focused question; independent authorized work can continue. |
+| `waiting_user` | A focused question about the user's reasoning, meaning, value, constraint or choice awaits an actual reply. End the guided-inquiry turn at that question; do not advance the dependent branch. |
 | `waiting_evidence` | A named observation, source, or external event is needed. Explain how it can be obtained; do not replace it with more debate. |
 | `delivered` | The result exists and has been presented. Do not record acceptance that the user has not expressed or continue automatically while awaiting feedback. |
 | `paused` | Preserve the current position for possible resumption; do not keep pursuing the inquiry. |
@@ -263,8 +300,9 @@ Before elaborating a consequential means, examine why it would serve the outcome
 and whether it is necessary, useful under conditions, or simply one option. Use
 [inference checks and judgment revision](references/methods.md#test-a-consequential-inference).
 
-Make a useful contribution, then ask one focused question only when a missing user
-judgment changes the next step. Wait for that answer before dependent work. Do not
+In guided inquiry, follow the question-and-wait behavior above; a useful contribution
+can be the question that exposes a premise. In direct delivery, ask only for a
+missing owner judgment that changes the work. Do not
 presuppose personal events, verification, belief changes, or agreement. Corrections
 to the assistant's understanding are not evidence that the user changed their view.
 Allow personal meanings to emerge; label your interpretations and new ideas.

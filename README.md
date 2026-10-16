@@ -16,7 +16,7 @@ Use it for questions that need sustained discussion and investigation, such as
 assessing a product direction or examining a strongly held view. Routine factual
 questions can go directly to your agent.
 
-Version: 0.3.1. The plugin contains a Skill, references and templates. Your host
+Version: 0.4.0. The plugin contains a Skill, references and templates. Your host
 provides the model and tools.
 
 - [Install and start](#install-and-start)
@@ -117,10 +117,15 @@ you need. For example:
 > assumptions that could change the decision, and produce a decision memo with
 > alternatives and unresolved questions.
 
-The agent reads the available context and establishes what the inquiry needs
-to answer. It asks one focused question when a missing choice or personal
-meaning changes the work. It investigates factual gaps with the available
-tools and reuses background you have already provided.
+When you want to think together, the agent starts from your current view and reasons.
+It asks one consequential question, ends its response there, and waits for your reply.
+Your answer determines whether it explains a concept, investigates a fact, challenges
+an inference, asks another question or synthesizes a judgment. It reuses reasoning
+already given and does not turn missing knowledge into a guessing exercise.
+
+A direct request for research, a comparison, a recommendation or a document can
+proceed without an interview. Ask for a direct answer or convergence at any time.
+Questions develop your thinking; they are not repeated requests for permission.
 
 You decide your values, tradeoffs and whether to continue. The agent contributes
 ideas and independent judgments, explains its reasons, and revises them when
@@ -226,6 +231,11 @@ and an advantage over ordinary conversation remain unproven.
   and independent result.
 
 ## Development
+
+[Local conversation observations](tests/observations/2026-10-17-guided-inquiry.json)
+record a baseline opening and nine candidate turns on Codex, including actual
+turn endings, answer-dependent follow-ups and direct-delivery requests. These are
+bounded observations, not a measured reliability or learning-effect claim.
 
 The package check uses the Python standard library. Run it from the repository
 root:

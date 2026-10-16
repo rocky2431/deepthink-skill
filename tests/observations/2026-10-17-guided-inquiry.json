@@ -1,0 +1,133 @@
+{
+  "observed_on": "2026-10-17",
+  "scope": "Explicitly loaded portable Skill in actual Codex ACP sessions, using synthetic user inputs sent as separate turns. The coordinator inspected completed replies before sending each next input. Expectations were outside worker workspaces. Normal host plugins and policies remained active.",
+  "configuration": {
+    "model": "gpt-6-astra[max]",
+    "codex_cli": "0.159.3",
+    "codex_acp_adapter": "1.10.0",
+    "acpx": "0.13.2"
+  },
+  "baseline_source_commit": "a52095f68b5866f0382f1d36321453027a0d3748",
+  "baseline_skill_tree_sha256": "dc2e11497de59983e79b447362dc98c12b05d3cd0ac112544e6ef5783d2520ca",
+  "candidate_skill_tree_sha256": "5c8e6f47e8dd8bfb01d34228a00be619f991360f519fa8c6706b943be12c45a6",
+  "assessment_method": "Manual inspection of full replies, tool events and native stop reasons, not word matching or model self-report. Session-start events identify the model; follow-ups preserve native session IDs.",
+  "limits": [
+    "One baseline opening and nine candidate turns across three sessions; no statistical reliability or learning-effect claim.",
+    "The baseline also asked a question; this run demonstrates a less preemptive candidate interaction, not universal failure of the previous version.",
+    "Native skill selection was explicit. Implicit discovery, a real interactive compaction event, other hosts and models were not tested.",
+    "The new automated fixtures also describe alternate-reason and sufficient-reasoning cases; those two cases and the seven legacy cases were not rerun as native sessions in this batch.",
+    "Actual human learning and long-term transfer remain unverified."
+  ],
+  "observations": [
+    {
+      "case": "harbor-opening",
+      "variant": "baseline",
+      "delegation_id": "ffdcfda169f742d1bbb4f441093be3a5",
+      "native_session_id": "01a1462a-745a-73e2-8dc7-ecd425870bfe",
+      "prompt": "Reply in Chinese. Keep this inquiry in chat and do not create files.\n\nI am considering changing my tool for freelancers into a product for companies. I feel that selling to companies has more potential, but I cannot quite explain why. Help me think this judgment through together.",
+      "reply": "我会用你指定的 deep-thinking Skill，和你一起拆开这个直觉，先弄清“更有潜力”具体指什么。讨论留在聊天里，不创建文件。\n我们先把“更有潜力”拆开。它可能指**收入上限更高、收入更稳定，或者能解决你更想解决的问题**。这几个期待都合理，但判断企业方向是否值得做，需要的理由并不一样。\n\n我先贡献一个区分：**客户有支付能力，和客户有理由为你的产品付钱，是两回事。** 一个值得检验的解释是：你的工具在企业里能解决代价更高的问题，收益能被某个买单的人认可，而且增加的收入足以覆盖销售、交付和服务的投入。这条链如果成立，就能为你的直觉提供支撑。\n\n不过，这只是一个候选解释，你的真实理由可能在别处。\n\n**最初是什么让你产生“卖给公司更有潜力”这个念头的？** 可以讲一件具体的事；如果还没有，就说说想象中的企业业务，最吸引你的那一点。\n\n目前尚未核实产品与客户证据，企业方向是否更好仍是待验证的判断。",
+      "stop_reason": "end_turn",
+      "execution_seconds": 83.369,
+      "assessment": "Baseline also asks and ends the turn; it first supplies a candidate commercial explanation and appends a summary after the question. This did not reproduce complete absence of questions."
+    },
+    {
+      "case": "meadow-opening",
+      "variant": "candidate",
+      "delegation_id": "46bb56489a094950954ea845f0554367",
+      "native_session_id": "01a1462c-4a9e-7583-a345-01bb42888f14",
+      "prompt": "Reply in Chinese. Keep this inquiry in chat and do not create files.\n\nI am considering changing my tool for freelancers into a product for companies. I feel that selling to companies has more potential, but I cannot quite explain why. Help me think this judgment through together.",
+      "reply": "我会按你指定的 deep-thinking Skill，先把“更有潜力”这个判断拆清楚，再一起检验它的依据。讨论留在聊天里，不创建文件。\n企业需求和付费意愿目前还没核实，“更有潜力”可以先保留为一个待检验的判断。\n\n**回想一下，是什么经历、观察或理由，让你开始觉得把这个工具卖给公司会更有潜力？**",
+      "stop_reason": "end_turn",
+      "execution_seconds": 66.118,
+      "assessment": "One relevant question, no decision recommendation, ends at the question."
+    },
+    {
+      "case": "meadow-turn-2",
+      "variant": "candidate",
+      "delegation_id": "e746a279de8349539cad203774ca8213",
+      "native_session_id": "01a1462c-4a9e-7583-a345-01bb42888f14",
+      "prompt": "Mainly because two companies offered to try it. I interpreted that as stronger demand than individual users, but we have not discussed payment.",
+      "reply": "两家公司提出试用，是一个具体的需求线索。但它还不足以说明企业需求比个人更强：我们还不知道它们的问题有多迫切，付费意愿也尚未验证。\n\n**这两家公司分别希望用你的工具，解决什么具体的工作问题？**",
+      "stop_reason": "end_turn",
+      "execution_seconds": 29.846,
+      "assessment": "Uses trial-interest answer, preserves payment uncertainty, asks about concrete jobs and waits."
+    },
+    {
+      "case": "meadow-turn-3",
+      "variant": "candidate",
+      "delegation_id": "c18845b2ba8f4e5e9af8210d4cba33fc",
+      "native_session_id": "01a1462c-4a9e-7583-a345-01bb42888f14",
+      "prompt": "I do not really understand the difference between willingness to try and willingness to pay. Explain that first.",
+      "reply": "**愿意试用，是愿意探索“它有没有用”；愿意付费，是在明确价格和条件后，愿意为这个价值花钱。** 两者可以同时存在，但前者不能自动证明后者。\n\n用一个假设的例子说明：\n\n- 公司说：“可以安排一个人试两周。”这表明他们愿意投入一些时间来了解产品，购买决定仍然开放。\n- 公司说：“如果能达到这个效果，每月 1,000 元我们愿意买。”这提供了更具体的付费信号。如果有预算决定权的人确认，并实际付款，证据就更强。\n\n这里的差别是：**一个工具可以有用，却没有重要到让对方愿意按你的价格购买。** 比如，它确实节省了一点时间，但对方觉得现有办法已经够用。反过来，试用也可能是认真采购前的必要验证，不能把它当作随口客气。\n\n所以，那两家公司的邀请值得重视。只是目前还没谈价格、预算和购买条件，它们的付费意愿仍然未知；“没谈钱”也不等于“不愿意付钱”。",
+      "stop_reason": "end_turn",
+      "execution_seconds": 42.761,
+      "assessment": "Explains the requested concept directly without a quiz or imposed business decision."
+    },
+    {
+      "case": "meadow-turn-4",
+      "variant": "candidate",
+      "delegation_id": "419eefae412447219723ae54c63f39b3",
+      "native_session_id": "01a1462c-4a9e-7583-a345-01bb42888f14",
+      "prompt": "For now, stop the questions and give me your provisional recommendation based only on what I have told you.",
+      "reply": "**我的暂定建议：值得验证企业方向，但现在还不足以支持全面转型。**\n\n两家公司提出试用，给了你两个具体的验证对象，这是有价值的信号。但还没谈付款，也没有个人客户表现的对照，所以目前无法判断企业方向是否更有商业潜力。\n\n下一步，我建议：\n\n- **把试用限定成一个小试点。** 尽量沿用现有工具，约定要解决的问题、范围和结束时间。\n- **尽早讨论具体价格，争取付费试点。** 如果需要大量改造，先取得更明确的购买承诺，再决定投入。\n- **同时观察需求共性和服务成本。** 如果两家公司愿意购买同一套产品，比各自要求大量专属开发，更能支持做企业产品的判断。\n\n如果出现实际付款、共同需求和可承受的交付成本，就逐步增加企业方向的投入；目前可以先保留现有产品定位。\n\n以上只依据你提供的信息，尚未验证付款、交付成本或个人端表现。主要风险是把试用兴趣当作订单，提前投入大量企业功能开发。",
+      "stop_reason": "end_turn",
+      "execution_seconds": 57.139,
+      "assessment": "Honors direct-answer steering and gives a conditional recommendation without further interview."
+    },
+    {
+      "case": "brook-opening",
+      "variant": "candidate",
+      "delegation_id": "670b29daf17c45efb2f5b64cfb1bb576",
+      "native_session_id": "01a1462e-55cd-7322-b345-53b56dac2a90",
+      "prompt": "Reply in Chinese. Keep this inquiry in chat and do not create files.\n\nI keep thinking that my small team should replace meetings with written updates. Meetings feel unproductive, but I am not sure which part is actually failing. Help me think it through with you.",
+      "reply": "我会按你指定的 deep-thinking Skill，和你一起从具体经历里找出问题；讨论留在聊天中，不创建文件。先把“改成书面更新”作为一个待检验的想法。\n目前还不清楚你说的“低效”具体发生在哪里，也就还不能判断书面更新能否解决它。\n\n回想最近一次让你觉得“还不如发文字”的会议：**具体发生了什么，让你产生这个判断？**",
+      "stop_reason": "end_turn",
+      "execution_seconds": 71.566,
+      "assessment": "A different topic elicits one concrete-experience question and a real turn end."
+    },
+    {
+      "case": "brook-turn-2",
+      "variant": "candidate",
+      "delegation_id": "be57d256376b47879bef15df1bbcd83f",
+      "native_session_id": "01a1462e-55cd-7322-b345-53b56dac2a90",
+      "prompt": "The decision often seems settled before the meeting begins. The manager presents a preferred plan and people mostly agree. We rarely discuss the assumptions behind it.",
+      "reply": "你指出了一个具体缺口：**方案背后的假设很少被检验。** 如果这一点不变，改成文字也可能保留同样的问题。不过，经理先表达偏好，还不足以证明决定已经无法改变。\n\n**你是否见过有人追问方案依据或提出不同意见；如果有，经理当时是怎样回应的？**",
+      "stop_reason": "end_turn",
+      "execution_seconds": 55.117,
+      "assessment": "Uses the new premise about predecided meetings to ask about responses to disagreement, not meeting format."
+    },
+    {
+      "case": "brook-turn-3",
+      "variant": "candidate",
+      "delegation_id": "cf76fe78cc3d45b28ee1487c342f2fd2",
+      "native_session_id": "01a1462e-55cd-7322-b345-53b56dac2a90",
+      "prompt": "Yes, that sounds right.",
+      "reply": "我们还缺一个具体例子，来判断不同意见是否有机会影响决定。\n\n**你能想起一次有人追问方案依据的场景，并说说经理当时怎么回应吗？**",
+      "stop_reason": "end_turn",
+      "execution_seconds": 29.822,
+      "assessment": "Bare agreement is not treated as an answer; returns to the unresolved evidence and waits."
+    },
+    {
+      "case": "pine-opening",
+      "variant": "candidate",
+      "delegation_id": "fa22d90ea0c8436cabe27d05e8335467",
+      "native_session_id": "01a1462e-800b-7670-8f38-ac5679b48dab",
+      "prompt": "Reply in Chinese. Keep this inquiry in chat and do not create files.\n\nResume our inquiry from this note: I prefer selling to companies because two offered to try it; no payment discussion has happened. The pending question was: What concrete job do those companies want it to do? I have not answered that yet.",
+      "reply": "我会使用你指定的 deep-thinking Skill，从上次未答的问题继续，只在聊天里讨论，不创建文件。\n接着上次继续：两家公司愿意试用，是你倾向卖给企业的理由；目前还没谈付费，付费意愿尚未验证。\n\n**这两家公司分别希望它完成什么具体工作？**",
+      "stop_reason": "end_turn",
+      "execution_seconds": 48.362,
+      "assessment": "Resumes the unanswered question without inventing a job or restarting the inquiry."
+    },
+    {
+      "case": "pine-turn-2",
+      "variant": "candidate",
+      "delegation_id": "ac27113466544c0bb4361a19b7edb55b",
+      "native_session_id": "01a1462e-800b-7670-8f38-ac5679b48dab",
+      "prompt": "Actually, give me a short comparison for another matter. Compare a flat text file and SQLite for a local personal reading list: one user, about 500 entries, each with title, URL and read status; no synchronization. Give a provisional recommendation from these facts, not a guided discussion.",
+      "reply": "我会直接按这组条件给出简短比较和暂定建议，先核对 SQLite 官方文档。\n**暂定推荐：一个 JSON 文本文件。** 单人、约 500 条、三个字段、无同步，整体读取后筛选已经足够，暂时没有必须引入数据库的需求。\n\n| 方面 | 文本文件（JSON） | SQLite |\n|---|---|---|\n| 查看与编辑 | 普通编辑器即可打开 | 通常需要数据库工具 |\n| 查询与修改 | 程序筛选；修改状态通常重写文件 | SQL 筛选、逐条更新 |\n| 实现成本 | 格式简单，但需处理安全保存 | 需要表结构和 SQL，存储管理更完善 |\n\nSQLite 同样适合这种本地应用，无需独立服务器；**如果现有程序已经使用 SQLite，就直接复用它。** [官方说明](https://www.sqlite.org/whentouse.html)\n\n未检查现有技术栈，也未做性能实测；选择文本时，保存应采用临时文件写完后替换，避免直接覆盖中断导致数据丢失。",
+      "stop_reason": "end_turn",
+      "execution_seconds": 61.424,
+      "assessment": "Honors a direct comparison request and does not insist on resolving the earlier inquiry."
+    }
+  ]
+}

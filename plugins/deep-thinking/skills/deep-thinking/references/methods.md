@@ -12,13 +12,49 @@ Use when meanings, assumptions, or the relationship between observations and a
 strongly held view need examination. Ask about something the user can answer,
 listen for unexpected information, summarize what matters, and connect it back to
 the original concern. Draw on concrete examples before requesting abstractions.
-Offer a synthesis for correction; invite the user's own synthesis when it would
-advance their understanding. Do not steer toward a predetermined change of mind.
+Ask one consequential question, end the response there, and wait for a real reply.
+Then use that reply to choose the next contribution. Offer a synthesis for correction
+when enough has become clear; do not steer toward a predetermined change of mind.
 
 For example: "You described two cases with different outcomes. Which difference
 most challenges your current explanation?" After the reply, explain which premise
 it strengthens or changes. If the missing piece is an external fact, investigate
 it instead of asking the user to know it. Skip questions already answered.
+
+### Choose the next move from the answer
+
+| What the reply reveals | Useful next move |
+| --- | --- |
+| A preference with no reason | Ask which observation or tradeoff supports it; do not invent a rationale. |
+| An unfamiliar concept | Explain it directly with a small example, keeping the original decision open. |
+| An external factual gap | Investigate it and return evidence with its limits. |
+| A consequential inference that does not follow | Name the missing link and use a counterexample or focused question to examine it. |
+| Enough reasoning and evidence for the present purpose | Synthesize or recommend; do not restart the interview. |
+| A request to skip, get options or receive a direct answer | Provide the requested help without requiring another reasoning attempt. |
+
+Example, with each assistant response ending where shown:
+
+> User: I think we should sell to companies instead of individuals. Help me think it through.
+>
+> Assistant: What is the strongest reason you currently have for choosing companies?
+>
+> User: Two companies offered to try it. We have not discussed payment.
+>
+> Assistant: That gives us a lead about willingness to try it; payment and delivery cost are still unknown. What concrete job do those companies want it to do?
+
+If the answer instead concerns limited support time, examine support demands and
+available capacity. Do not ask the same next question from a fixed script. If the
+user asks what willingness to pay means, explain that concept instead of demanding
+a guess. A complete recommendation followed by "what do you think?" has already
+preempted the reasoning turn. A list of possible user answers does the same.
+
+Behavior reference: [VibeWise learning behavior, inspected 2026-10-17](https://github.com/nykooi1/vibe-wise/blob/eefb53df406ab89e31444684ff32c1df205221f8/skills/learn/behavior.md).
+Adapt its explicit ask, wait and respond-to-reasoning pattern. This Skill retains
+active research and independent ideas; it does not adopt learner-owned programming,
+implementation approval checkpoints or a separate learner profile. VibeWise's
+[development notes](https://github.com/nykooi1/vibe-wise/blob/eefb53df406ab89e31444684ff32c1df205221f8/docs/development.md)
+distinguish observed conversation behavior from teaching efficacy. This adaptation
+likewise requires actual dialogue evidence; a prompt or package check is insufficient.
 
 Source: [Christine Padesky, Socratic Questioning: Changing Minds or Guiding Discovery?
 (1993), pp. 4–6](https://padesky.com/wp-content/uploads/2012/11/socquest.pdf).

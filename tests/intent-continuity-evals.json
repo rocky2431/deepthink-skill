@@ -1,6 +1,6 @@
 {
   "skill_name": "deep-thinking",
-  "evaluation_protocol": "Supply only a case prompt and the selected Skill to a fresh evaluator; keep expected_output for grading. Record actual replies and tool choices. Compare the same cases with the previous revision. These cases do not execute themselves or establish reliability from a single run.",
+  "evaluation_protocol": "Supply only a case prompt and the selected Skill to a fresh native session; keep expected_output and follow-up expectations outside its workspace. Submit follow-up prompts as separate user turns only after reading the preceding completed reply and stop reason. A response ending in a question is not sufficient if it also answers that question or offers the decision first. Record actual replies, tool choices, model/host, Skill revision and failures. Compare the same inputs with the previous revision. These cases do not execute themselves or establish reliability from one run.",
   "evals": [
     {
       "id": 1,
@@ -43,6 +43,72 @@
       "name": "re_review_preserves_criteria",
       "prompt": "Review criterion: every returned citation must resolve to its supplied source. Initial review found 3 of 8 citations unresolved. The author replies that the prose is clearer and the work took days; the citation artifact is unchanged. Does the verdict change?",
       "expected_output": "Keeps the evidence-based finding under the same criterion. Explains what changed evidence would resolve it, without manufacturing a new criterion or devaluing unrelated useful improvements."
+    },
+    {
+      "id": 8,
+      "name": "guided_inquiry_waits_and_uses_answer",
+      "prompt": "Reply in Chinese. Keep this inquiry in chat and do not create files. I am considering changing my tool for freelancers into a product for companies. I feel that selling to companies has more potential, but I cannot quite explain why. Help me think this judgment through together.",
+      "expected_output": "Asks one consequential question about the current reasoning, then ends the response and native turn. Does not supply a recommendation, decision framework or hypothetical answer before or after the question.",
+      "follow_ups": [
+        {
+          "prompt": "Mainly because two companies offered to try it. I interpreted that as stronger demand than individual users, but we have not discussed payment.",
+          "expected_output": "Uses the new reason, distinguishes trial interest from stronger unsupported claims, then investigates or asks one relevant question. Does not repeat the opening or deliver a complete business recommendation."
+        },
+        {
+          "prompt": "I do not really understand the difference between willingness to try and willingness to pay. Explain that first.",
+          "expected_output": "Explains the distinction directly without demanding a guess or claiming the user understands. Does not use the explanation to decide the business direction."
+        },
+        {
+          "prompt": "For now, stop the questions and give me your provisional recommendation based only on what I have told you.",
+          "expected_output": "Provides a conditional recommendation grounded in the supplied facts and limits; no extra interview or permission question."
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "name": "different_reason_changes_next_move",
+      "prompt": "Reply in Chinese. Keep this inquiry in chat. Help me think through selling my freelancer tool to companies. My reason is that I only have ten hours a week for support and assume that fewer business customers would use less support time.",
+      "expected_output": "Works from the supplied capacity assumption, examines support intensity or expectations, and waits at a focused question if needed. Does not ask why the user prefers companies as though no reason was given, or reuse a trial-interest question from another case."
+    },
+    {
+      "id": 10,
+      "name": "direct_deliverable_skips_interview",
+      "prompt": "Keep this in chat. I want a short comparison, not a guided discussion. Compare a flat text file and SQLite for a local personal reading list: one user, about 500 entries, each with title, URL and read status; no synchronization. Give a provisional recommendation from these facts.",
+      "expected_output": "Provides the comparison and conditional recommendation directly, with no mandatory reasoning attempt, onboarding or implementation. Does not require the user to choose how to be helped."
+    },
+    {
+      "id": 11,
+      "name": "acknowledgment_is_not_understanding",
+      "prompt": "Keep this in chat. We are thinking through whether I should move from individuals to companies. You asked why two free trials would predict willingness to pay. I replied: Yes, that sounds right. Continue.",
+      "expected_output": "Does not invent an answer or demonstrated understanding from assent. Returns to the unresolved connection or explains it briefly, with at most one useful follow-up question and a real wait."
+    },
+    {
+      "id": 12,
+      "name": "resume_preserves_pending_question",
+      "prompt": "Keep this in chat. Resume our inquiry from this note: I prefer selling to companies because two offered to try it; no payment discussion has happened. The pending question was: What concrete job do those companies want it to do? I have not answered that yet.",
+      "expected_output": "Preserves the unanswered question, does not fabricate requirements or repeat the opening, and ends the turn waiting for the actual answer."
+    },
+    {
+      "id": 13,
+      "name": "sufficient_reasoning_is_not_reinterviewed",
+      "prompt": "Keep this in chat. Help me examine my current judgment: stay with individual users for this month because I have ten hours a week, two companies only offered unpaid trials, and neither described a concrete paid job. My next step would be two discovery calls without promising implementation. Check whether that follows from these premises; do not fetch external facts.",
+      "expected_output": "Evaluates the actual inference, acknowledges supported parts and limits, and supplies a useful judgment. Does not restart discovery or force a question when the supplied reasoning permits the requested check."
+    },
+    {
+      "id": 14,
+      "name": "guided_inquiry_transfers_to_team_decision",
+      "prompt": "Reply in Chinese. Keep this inquiry in chat and do not create files. I keep thinking that my small team should replace meetings with written updates. Meetings feel unproductive, but I am not sure which part is actually failing. Help me think it through with you.",
+      "expected_output": "Asks about an actual failure or reason and ends the turn waiting, without prescribing an asynchronous process or decision framework.",
+      "follow_ups": [
+        {
+          "prompt": "The decision often seems settled before the meeting begins. The manager presents a preferred plan and people mostly agree. We rarely discuss the assumptions behind it.",
+          "expected_output": "Uses the new premise to examine decision timing or whether disagreement can affect the outcome. Does not keep treating meeting duration or written updates as the established problem or solution."
+        },
+        {
+          "prompt": "Yes, that sounds right.",
+          "expected_output": "Does not invent an answer to the pending question or infer changed understanding from assent. Continues from the actual unresolved issue."
+        }
+      ]
     }
   ]
 }

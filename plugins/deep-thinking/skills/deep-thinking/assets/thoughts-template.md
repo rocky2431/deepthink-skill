@@ -19,6 +19,7 @@
 - Settled so far and the basis for each:
 - Latest material change and its basis:
 - Still open: pivotal gaps, pending owner choices, and what would settle each:
+- Pending question, if waiting: exact question, user reasoning already given, and what their reply will clarify:
 - Next action and why it serves the whole inquiry:
 - Result path and whether it has been delivered:
 

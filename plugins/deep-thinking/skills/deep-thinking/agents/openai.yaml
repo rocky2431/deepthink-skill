@@ -1,6 +1,6 @@
 interface:
   display_name: "Deep Thinking"
   short_description: "Clarify, research, challenge, and form a defensible view"
-  default_prompt: "Use $deep-thinking to work through my question, investigate pivotal evidence, and deliver a defensible outcome."
+  default_prompt: "Use $deep-thinking to think this through with me, starting from my reasoning and investigating pivotal evidence together."
 policy:
   allow_implicit_invocation: true
