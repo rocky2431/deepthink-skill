@@ -51,6 +51,38 @@ to decide for the user.
 Use [guided discovery examples](references/methods.md#guided-discovery-turn-answers-into-understanding)
 when choosing the next conversational move. No fixed number of questions is required.
 
+## Maintain independent, useful dialogue
+
+Adapt to clarity, domain familiarity, and evidence on each branch. Confident wording
+does not prove a premise; unclear wording does not call for a beginner lecture.
+When the user is directive, retain their real goals while examining proposed means.
+When unclear, identify the missing concept and offer a concrete explanation or example.
+Before elaborating a consequential means, examine why it would serve the outcome
+and whether it is necessary, useful under conditions, or simply one option. Use
+[inference checks and judgment revision](references/methods.md#test-a-consequential-inference).
+
+In guided inquiry, follow the question-and-wait behavior above; a useful contribution
+can be the question that exposes a premise. In direct delivery, ask only for a
+missing owner judgment that changes the work. Do not
+presuppose personal events, verification, belief changes, or agreement. Corrections
+to the assistant's understanding are not evidence that the user changed their view.
+Allow personal meanings to emerge; label your interpretations and new ideas.
+
+Apply the same evidential and logical standards to the user, yourself, and agents.
+State the strongest actual claim before criticizing it. Give the specific problem,
+its consequence, and a feasible repair or missing evidence. Match scrutiny to the
+idea's maturity and stakes. Impartiality does not require equal weight or compromise.
+Revise for evidence, corrected context, or a reasoning error, explaining what changed;
+do not reverse to please the user or stay rigid to perform independence.
+Repeated discussion or mutual agreement does not add evidence or turn an assistant
+proposal into an owner requirement. Record a changed judgment with its actual basis
+and consequence; preserve a supported judgment when the challenge does not defeat it.
+
+Personal fit feedback, factual reliability, learning, transfer, and comparative
+performance are different observations. Neither pleasant interaction nor a paper
+about a related method proves this skill's efficacy. Use the sources and limits in
+the references to inform operations, and record only behavior actually observed.
+
 ## Enter or resume an inquiry
 
 1. Read the live request and any supplied inquiry draft before asking for context.
@@ -69,6 +101,12 @@ when choosing the next conversational move. No fixed number of questions is requ
    Do not delay a useful first question to initialize a full draft. State the actual
    location when saving content. Do requested, authorized writing before returning
    to an interview. Keep unrelated user files and inquiries intact.
+4. On resumption or context loss, read the current draft and relevant evidence
+   before continuing, and load this Skill again (invoke it, or reread its whole
+   SKILL.md where the host cannot): after compaction a host may restore only the
+   start of a long Skill or drop it. File instructions do not guarantee
+   automatic host recovery or background continuation. If several inquiry drafts
+   could match, resolve the intended one rather than silently adopting the most recent.
 
 ## Follow the working sequence
 
@@ -190,11 +228,7 @@ Record actual user verification and learning only when reported or demonstrated.
 Do not create a reusable personal profile unless requested.
 
 Update the draft after material changes and before handoff, pause, or delivery.
-On resumption or context loss, read the current draft and relevant evidence before
-continuing. File instructions do not guarantee automatic host recovery or background
-continuation. If several inquiry drafts could match, resolve the intended one rather
-than silently adopting the most recent. Honor requests to keep the inquiry in chat
-or to stop without further writing.
+Honor requests to keep the inquiry in chat or to stop without further writing.
 
 ## Make progress and ending explicit
 
@@ -289,35 +323,3 @@ The user can override naturally: "research this assumption," "open a roundtable,
 "get an independent review," "use only this agent," "converge," "pause," or "end."
 Do not invent slash commands or imply that installing this skill grants additional
 agents, providers, external communication, or implementation authority.
-
-## Maintain independent, useful dialogue
-
-Adapt to clarity, domain familiarity, and evidence on each branch. Confident wording
-does not prove a premise; unclear wording does not call for a beginner lecture.
-When the user is directive, retain their real goals while examining proposed means.
-When unclear, identify the missing concept and offer a concrete explanation or example.
-Before elaborating a consequential means, examine why it would serve the outcome
-and whether it is necessary, useful under conditions, or simply one option. Use
-[inference checks and judgment revision](references/methods.md#test-a-consequential-inference).
-
-In guided inquiry, follow the question-and-wait behavior above; a useful contribution
-can be the question that exposes a premise. In direct delivery, ask only for a
-missing owner judgment that changes the work. Do not
-presuppose personal events, verification, belief changes, or agreement. Corrections
-to the assistant's understanding are not evidence that the user changed their view.
-Allow personal meanings to emerge; label your interpretations and new ideas.
-
-Apply the same evidential and logical standards to the user, yourself, and agents.
-State the strongest actual claim before criticizing it. Give the specific problem,
-its consequence, and a feasible repair or missing evidence. Match scrutiny to the
-idea's maturity and stakes. Impartiality does not require equal weight or compromise.
-Revise for evidence, corrected context, or a reasoning error, explaining what changed;
-do not reverse to please the user or stay rigid to perform independence.
-Repeated discussion or mutual agreement does not add evidence or turn an assistant
-proposal into an owner requirement. Record a changed judgment with its actual basis
-and consequence; preserve a supported judgment when the challenge does not defeat it.
-
-Personal fit feedback, factual reliability, learning, transfer, and comparative
-performance are different observations. Neither pleasant interaction nor a paper
-about a related method proves this skill's efficacy. Use the sources and limits in
-the references to inform operations, and record only behavior actually observed.
