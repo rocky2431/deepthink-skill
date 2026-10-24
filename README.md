@@ -16,7 +16,7 @@ Use it for questions that need sustained discussion and investigation, such as
 assessing a product direction or examining a strongly held view. Routine factual
 questions can go directly to your agent.
 
-Version: 0.4.1. The plugin contains a Skill, references and templates. Your host
+Version: 0.5.0. The plugin contains a Skill, references and templates. Your host
 provides the model and tools.
 
 - [Install and start](#install-and-start)
@@ -172,9 +172,13 @@ into a decision memo."
 ## Files and progress
 
 Each sustained inquiry reuses its existing directory. For new inquiries, follow
-the requested location or the project’s existing `docs/` / `documents/` convention;
-with no convention, `<workspace>/documents/<topic>/`. Existing `thinking/` inquiries
-stay in place. The agent states the actual location at the
+the requested location or the project’s documented convention; otherwise
+`research/<YYYY-MM-DD>-<topic>/` at the project root. The first inquiry creates
+`research/` with a README marking it as managed by Deep Thinking; a `research/`
+folder without that marker belongs to the project and is not written into.
+Existing `thinking/`, `docs/` and `documents/` inquiries stay in place. The draft's
+Current position sits between `<!-- current-state -->` markers so a recovering
+agent, or Task State recovery, receives just that part. The agent states the actual location at the
 start and keeps the inquiry's material outside the reusable plugin package.
 
 | File | Contents |

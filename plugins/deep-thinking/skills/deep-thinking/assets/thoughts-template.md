@@ -10,8 +10,10 @@
 <!-- Where applicable, name adopted direction, plan/milestone, accepted terms and
      the current-state record by accessible path/section and source date/revision.
      Omit absent layers. A research branch keeps only its own position here;
-     reference the main task's state instead of copying its progress. -->
+     reference the main task's state instead of copying its progress. Keep only
+     what is true now between the markers, under about 3,000 characters. -->
 
+<!-- current-state -->
 - Question and purpose: key owner wording and corrections, then current interpretation:
 - Scope, intended deliverable, and sufficient outcome:
 - Stage: Frame / Clarify / Research / Synthesize / Check / Deliver
@@ -22,6 +24,7 @@
 - Pending question, if waiting: exact question, user reasoning already given, and what their reply will clarify:
 - Next action and why it serves the whole inquiry:
 - Result path and whether it has been delivered:
+<!-- /current-state -->
 
 ## Problem structure and current judgment
 

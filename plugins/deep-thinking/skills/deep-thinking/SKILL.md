@@ -157,16 +157,22 @@ scope or success criteria. Revisit affected work, preserving still-valid evidenc
 
 Keep session content outside this reusable skill package. Reuse an existing inquiry
 directory and draft. For new work, use the explicitly requested path, then the
-project's established business-document directory (such as `docs/` or `documents/`);
-with no convention, use `<workspace>/documents/<topic>/`. Keep existing `thinking/`
-inquiries where they are. Distinguish collisions without overwriting another inquiry. If
+project's documented convention; otherwise `research/<YYYY-MM-DD>-<topic>/` at the
+project root. On first use, create `research/` with a `README.md` whose first line is
+`<!-- managed-by: deep-thinking -->` and which says what the folder holds; if a
+`research/` folder exists without that line, it belongs to the project, so agree on
+another location instead of writing into it. Keep existing `thinking/`, `docs/` and
+`documents/` inquiries where they are. Distinguish collisions without overwriting another inquiry. If
 there is no writable workspace, agree on an available destination or provide the
 content in the conversation and state that no files were saved.
 
 - **Working reasoning**, standalone default **`THOUGHTS.md`**: initialize when needed using
   [the draft template](assets/thoughts-template.md). Keep its top current: question,
   purpose and output, stage, status, what is settled, material change, pivotal gaps,
-  next action and reason, and result path. Below it maintain the problem structure,
+  next action and reason, and result path. Keep that Current position between
+  `<!-- current-state -->` and `<!-- /current-state -->` lines and short (under about
+  3,000 characters): it is what a recovering agent receives first, and only what is
+  true now belongs there. Below it maintain the problem structure,
   factor map, evidence, alternatives, judgments, meaningful revisions, and parked branches.
   Preserve key owner wording and corrections separately from your interpretation;
   keep examples and tentative means labelled when summarizing or resuming.
