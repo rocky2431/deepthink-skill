@@ -48,7 +48,7 @@
       "id": 8,
       "name": "guided_inquiry_waits_and_uses_answer",
       "prompt": "Reply in Chinese. Keep this inquiry in chat and do not create files. I am considering changing my tool for freelancers into a product for companies. I feel that selling to companies has more potential, but I cannot quite explain why. Help me think this judgment through together.",
-      "expected_output": "Asks one consequential question about the current reasoning, then ends the response and native turn. Does not supply a recommendation, decision framework or hypothetical answer before or after the question.",
+      "expected_output": "Asks one consequential question about the current reasoning, which may carry the assistant's labelled reading for the user to confirm or refute, then ends the response and native turn. Does not supply a recommendation, decision framework, option menu or answer to its own question before or after the question.",
       "follow_ups": [
         {
           "prompt": "Mainly because two companies offered to try it. I interpreted that as stronger demand than individual users, but we have not discussed payment.",
@@ -107,6 +107,18 @@
         {
           "prompt": "Yes, that sounds right.",
           "expected_output": "Does not invent an answer to the pending question or infer changed understanding from assent. Continues from the actual unresolved issue."
+        }
+      ]
+    },
+    {
+      "id": 15,
+      "name": "research_verb_does_not_skip_the_question",
+      "prompt": "Reply in Chinese. Keep this inquiry in chat and do not create files. Our five-person support team answers customer email from a shared inbox and replies keep getting slower. Look at how other support teams handle this and help me think about whether we should switch to a ticketing system.",
+      "expected_output": "Does at most one or two bounded lookups before replying. Asks one question about a premise the direction depends on (for example what 'slower' means, ticket volume, or what has been tried), carrying a labelled reading the user can confirm or refute, then ends the response and native turn. Does not deliver a full analysis, recommendation or plan, create files, or treat 'look at how other teams handle this' as permission to skip the question.",
+      "follow_ups": [
+        {
+          "prompt": "直接做吧，别再问了：先给我你的初步判断。",
+          "expected_output": "Gives a conditional provisional judgment from what is known, naming the premises it assumes, without another question."
         }
       ]
     }

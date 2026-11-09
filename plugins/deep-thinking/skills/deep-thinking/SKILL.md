@@ -20,22 +20,36 @@ or permission at every step.
 
 ## Start with the user's reasoning
 
-When the user wants to think something through together, begin with their current
-view and reasons. An unexplained premise, unclear concept, or consequential
-tradeoff can warrant a question even when requirements and permissions are clear.
-Infer the requested interaction from the conversation: a direct request for
-research, a comparison, a recommendation or a finished document can proceed without
-an interview. Do not impose a mode picker or turn a request to think into permission
-to decide for the user.
+Order the work by what it depends on, not by the verbs in the request. The user
+holds premises you cannot see: their goal, constraints, what they have tried, and
+why. Work whose direction depends on those premises (a judgment, a proposal, a deep
+investigation) waits until they have been asked; "look into this" or "research
+that" does not supply them. Work that does not depend on them, such as reading
+material the user named or checking a public fact, can come first.
 
-1. Reuse the reasoning already given. Find the consequential gap and ask one
-   focused, open question that the user can answer from their view or experience.
-   Explain a missing concept briefly if needed to make the question answerable.
-   Do not replace their attempt with your complete analysis or a solution menu.
+When the user wants to think something through, the first turn does at most one or
+two bounded lookups that could most change their view (named material, a fact that
+may correct a premise, how practitioners handle it), then asks one question and
+stops. Skip or reorder this only when the user says so ("just do it", "no
+questions", "summarize first, then we talk"), for the current request. When the
+user confines the work to premises they have stated, or asks only for a fact,
+proceed without a question. Do not impose a mode picker or turn a request to think
+into permission to decide for the user.
+
+1. Reuse the reasoning already given. Find the premise the direction depends on and
+   ask one question, not a numbered list: when several premises matter, ask the one
+   whose answer would most change the direction and keep the rest for later turns.
+   Let the question carry your labelled reading, so the user can confirm or refute
+   it in a sentence: have them predict a consequence, find the flaw in a plausible
+   claim, test a case that would break their view, or reconcile it with something
+   they said earlier or with evidence. Explain a missing concept briefly if needed
+   to make the question answerable. Do not replace their attempt with your complete
+   analysis or a solution menu.
 2. **End the response at the question and wait for the user's actual reply.**
    Do not answer it yourself, assume a likely answer, or append a recommendation,
-   plan, summary or offer afterward. A question tool that returns immediately is
-   not a user answer; end the turn instead of continuing the dependent branch.
+   plan, summary, offer or what you will do once they answer. A question tool that
+   returns immediately is not a user answer; end the turn instead of continuing the
+   dependent branch.
 3. Work from the reply: explain what it establishes and what remains uncertain,
    then investigate a fact, explain a concept, test an inference, offer a new
    perspective or ask the next consequential question. Different reasons should
@@ -61,9 +75,9 @@ Before elaborating a consequential means, examine why it would serve the outcome
 and whether it is necessary, useful under conditions, or simply one option. Use
 [inference checks and judgment revision](references/methods.md#test-a-consequential-inference).
 
-In guided inquiry, follow the question-and-wait behavior above; a useful contribution
-can be the question that exposes a premise. In direct delivery, ask only for a
-missing owner judgment that changes the work. Do not
+Follow the question-and-wait behavior above; a useful contribution can be the
+question that exposes a premise. After the user says to proceed without questions,
+ask only for a missing owner judgment that changes the work. Do not
 presuppose personal events, verification, belief changes, or agreement. Corrections
 to the assistant's understanding are not evidence that the user changed their view.
 Allow personal meanings to emerge; label your interpretations and new ideas.
@@ -95,7 +109,8 @@ the references to inform operations, and record only behavior actually observed.
    user steering to update the inquiry; do not hold them to an obsolete framing.
 2. Establish this inquiry's question, purpose, scope, intended deliverable, and what
    would make it useful enough to deliver. Infer these from existing context where
-   clear. Ask one material question if a missing owner choice changes the work.
+   clear; a premise the direction depends on and the user has not stated is asked,
+   not inferred.
    Never silently narrow the user's objective to declare an easier version complete.
 3. Reuse the inquiry content below when continuity or the deliverable needs it.
    Do not delay a useful first question to initialize a full draft. State the actual
@@ -112,14 +127,15 @@ the references to inform operations, and record only behavior actually observed.
 
 Default sequence: **Frame → Clarify ↔ Research → Synthesize → Check → Deliver**.
 These are dependencies and useful checkpoints, not a required number of meetings.
-Use material already available; skip inapplicable work with a reason. An exploratory
-search can help frame an unfamiliar question. Evidence can return the inquiry to
-clarification; a failed check returns to the affected premise or research branch.
+Use material already available; skip inapplicable work with a reason. A bounded
+lookup can sharpen the first question; it does not replace asking it. Evidence can
+return the inquiry to clarification; a failed check returns to the affected premise
+or research branch.
 
 | Stage | Work and output | Condition for moving on |
 | --- | --- | --- |
 | Frame | Record the question, purpose, scope, output, and sufficient outcome in the draft. | Enough is known to choose the next meaningful action. |
-| Clarify | Build the question's structure: meanings, goals, self and environment, explanations, alternatives, pivotal assumptions, and unknowns. Use [methods](references/methods.md). | Direction-changing personal meanings and constraints are clear enough; factual gaps can become research questions. |
+| Clarify | Build the question's structure: meanings, goals, self and environment, explanations, alternatives, pivotal assumptions, and unknowns. Use [methods](references/methods.md). | The user has confirmed or corrected the premises the direction depends on, or has said to proceed without them; factual gaps can become research questions. |
 | Research | Investigate consequential unknowns, source evidence, counterevidence, causal links, and applicability with [the research protocol](references/research.md). Update the factor map and evidence notes in useful batches. | Evidence supports the intended outcome, or the remaining gap can be stated precisely enough for a qualified result or an external check. |
 | Synthesize | Connect evidence to the user's purpose; develop and compare explanations, options, dependable Beta, and candidate Alpha. | A candidate answer and its premises can be examined; unresolved user tradeoffs remain attributed and open. |
 | Check | Compare the candidate with the original need, inspect consequential inferences and omissions, and use [adversarial review](references/roundtable.md#review-a-mature-candidate) when warranted. | Repairs or qualifications make the result's strength consistent with its support; unresolved gaps do not invalidate the kind of outcome being delivered. |
@@ -308,11 +324,9 @@ Keep three assessments separate:
 When consequential basics are missing, fill those knowledge or reasoning gaps.
 Where the relevant Beta is understood, contribute overlooked mechanisms, different
 framings, adjacent-field connections, or new possibilities. Preserve rejected ideas'
-useful distinctions. Pursue the owner's ambition of "always thinking like 1%" without
-claiming a measured percentile or manufacturing disagreement. The user controls how
-far to explore. Their "95% confidence" here means near-complete command of relevant
-factors under current conditions, not a 95% probability of success; do not invent a
-coverage percentage for an unknown universe of factors.
+useful distinctions. Seek distinctive perspectives without claiming a measured
+percentile or manufacturing disagreement. The user controls how far to explore. Do
+not invent a coverage percentage for an unknown universe of factors.
 
 ## Choose methods and contributors
 

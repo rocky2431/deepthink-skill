@@ -1,0 +1,117 @@
+{
+  "observed_on": "2026-11-09",
+  "scope": "Explicitly invoked Skill (\"Use deep-thinking.\") in fresh Claude Code print sessions loaded with --plugin-dir, user settings, plugins and hooks excluded (--setting-sources project,local), Write/Edit/NotebookEdit disallowed, empty temporary working directory, one run per row.",
+  "configuration": {
+    "host": "Claude Code 2.1.319",
+    "model": "claude-opus-5-5 (xhigh effort)"
+  },
+  "baseline_source_commit": "df10855",
+  "assessment_method": "Manual reading of final replies plus tool-event counts from stream-json output; no word matching or model self-report.",
+  "limits": [
+    "One run per variant and case; no reliability claim.",
+    "Implicit invocation, the owner global instructions, other hosts and other models were not tested.",
+    "Follow-up turns (including the explicit skip in eval 15) were not run."
+  ],
+  "assessment": {
+    "question_before_research": "Baseline searched 6 times and replied with about 3,100 characters before asking. All four full-candidate runs asked before any broad investigation (0, 2, 0 and 4 external lookups) and wrote no files.",
+    "one_question_and_stop": "Not achieved. Candidate runs asked 3-4 numbered questions in three of four runs and appended what would happen after the answer; the one single-question reply listed answer options. The baseline showed the same pattern.",
+    "discriminating_check": "The opening section alone produced 3-4 questions in both runs (6 and 0 lookups), so the full Skill length is not the main cause of multiple questions; this rests on two runs."
+  },
+  "observations": [
+    {
+      "case": "research_verb_does_not_skip_the_question (eval 15)",
+      "variant": "baseline 0.5.0 (df10855)",
+      "tools": [
+        "Skill",
+        "ToolSearch",
+        "WebSearch",
+        "WebSearch",
+        "WebSearch",
+        "WebSearch",
+        "WebSearch",
+        "WebSearch"
+      ],
+      "external_lookups": 6,
+      "reply_characters": 3115,
+      "file_writes": 0,
+      "reply": "我先查了一轮资料。下面是初步判断，最后有几个问题要请你回答，你的回答会决定建议往哪个方向走。\n\n## 先换个问法\n\n\"要不要换工单系统\"背后真正要回答的是：**回复为什么变慢？** 工单系统能解决协作问题，解决不了人手不够的问题。原因没弄清就换工具，可能钱花了、迁移也折腾了，速度还是上不来。\n\n## 其他团队怎么做\n\n- **人数门槛**：多数资料认为，只处理邮件、10–15 人以下的团队，共享收件箱还够用。5 个人本身不是必须换的理由，该看的是工作中出现了什么问题，不是人数。\n- **团队通常因为这些情况而切换**：\n  - 撞单：两个人回了同一封，另一封却没人回\n  - 漏单：每个人都以为别人在处理\n  - 没有优先级，急件埋在按时间排列的邮件里\n  - 回答不了\"现在有多少封没回、平均多久回一封\"\n  - 要对客户承诺回复时限（SLA），或者渠道扩展到聊天、电话\n- **折中方案**：Help Scout、Front、Hiver 这类工具在共享收件箱上加了分配、状态、撞单提醒和报表，用起来还像邮箱，迁移成本比 Zendesk、Freshdesk 这类完整工单系统低。\n- **不换工具，只改流程**：\n  - 每班指定一个人轮值，负责认领和分派新邮件\n  - 关注\"最早一封没人认领的邮件已经等了多久\"，不只看平均回复时间。平均值会掩盖个别等了好几天的邮件\n  - 按截止时间排序，而不是按收到的时间\n\n**提醒**：我搜到的几乎都是工具厂商的文章，天然倾向于劝你升级。一线团队的亲身经历（比如换了之后后悔的）我没找到，这部分证据比较弱。\n\n## 一个容易忽略的角度：排队论\n\n团队的繁忙程度（时间被占满的比例）超过大约 80% 之后，等待时间会急剧上升，不是按比例增长。有资料举的例子是：来信量只涨了 20%，回复时间就从几小时拖到几天。如果你们是这种情况，换工具顶多省下一些沟通协调的时间，等待时间暴涨的问题本身不会消失。\n\n反过来说，\"五个人一起处理同一批邮件\"在排队论里其实是效率很高的安排，比给每个人固定分配客户要好。共享收件箱的毛病不在\"共享\"，而在**看不出每封邮件归谁、处理到哪一步**。所以好的方案应该保留大家共用的邮件池，补上归属和状态，而不是拆成每人一个收件箱。\n\n## 三种可能的原因\n\n| | 表现 | 对应的解决办法 | 换工单系统有没有用 |\n|---|---|---|---|\n| A 协作混乱 | 撞单、漏单，花时间确认\"这封谁在回\" | 明确每封归谁、处理到哪一步 | 很有用 |\n| B 人手不够 | 来信变多或问题变复杂，大家一直满负荷 | 减少来信（FAQ、从产品上解决根本问题）、回复模板、加人 | 帮助有限 |\n| C 等其他部门 | 回复要等技术、财务等部门给答案 | 建立内部转交流程和时限 | 能让卡点看得见，但不能让别人回得更快 |\n\n实际情况往往几种都有，但哪种是主要原因，决定了钱该花在哪。\n\n## 请你回答这几个问题\n\n1. \"变慢\"是怎么看出来的？有数据（第一次回复用了多久、积压了多少封），还是来自客户投诉或大家的感觉？大概从什么时候开始的？\n2. 过去半年，每天的来信量和团队人数各有什么变化？\n3. 现在用的是什么（Gmail 群组、Outlook 共享邮箱，还是别的）？现在怎么决定谁回哪一封？\n4. 最近一个月，撞单或者一封邮件好几天没人回的情况，大概多久出现一次？\n\n如果第 1、2 题手头没有数据，有个省事的办法：从最近回得慢的邮件里挑 20–30 封，逐封记下它卡在哪一步：没人看到、看到了但没人接手、接手了但不知道怎么回，还是在等其他部门。一两个小时就能做完，结果基本能告诉你主要是 A、B 还是 C。\n\n你回答之后，我会先确定主要原因，再比较三个方案：只改流程、用轻量的共享收件箱工具、上完整的工单系统。最后给出推荐和一个试行计划。\n\n**来源**（大多是厂商文章，请注意立场）：\n- [Shared Inbox vs Help Desk: Which Does Your Team Need?（SupportBee）](https://supportbee.com/blog/shared-inbox-vs-help-desk-which-does-your-team-need)\n- [Shared Inbox vs Ticketing System（EmailAnalytics）](https://emailanalytics.com/shared-inbox-vs-ticketing-system)\n- [Shared Inbox vs Help Desk: When to Switch（LetRelay）](https://www.letrelay.com/blog/shared-inbox-vs-help-desk)\n- [When Does a Small Team Outgrow a Shared Inbox?（LiveHelpNow）](https://livehelpnow.net/blog/when-does-a-small-team-outgrow-a-shared-inbox/)\n- [Why Shared Inboxes Fail as Support Teams Scale（BoldDesk）](https://www.bolddesk.com/blogs/why-shared-inboxes-fail-at-scale)\n- [Shared support queue management（eesel.ai）](https://www.eesel.ai/blog/shared-support-queue-management)\n- [Ticket Triage: A Routing Playbook For Small IT Teams（SherpaDesk）](https://www.sherpadesk.com/blog/ticket-triage)\n- [How to Cut First-Response Time in Half（LetRelay）](https://www.letrelay.com/blog/cut-first-response-time-in-half)\n- [Help Scout vs Front in 2026（eesel.ai）](https://www.eesel.ai/blog/helpscout-vs-front)\n- [Queuing Theory（Umbrex）](https://umbrex.com/resources/frameworks/operations-frameworks/queuing-theory/)\n- [Server utilization: Joel on queueing（John D. Cook）](https://www.johndcook.com/blog/2009/01/30/server-utilization-joel-on-queuing/)\n- [Queueing Theory and Modeling（Linda Green, Columbia）](https://business.columbia.edu/sites/default/files-efs/pubfiles/5474/queueing%20theory%20and%20modeling.pdf)"
+    },
+    {
+      "case": "research_verb_does_not_skip_the_question (eval 15)",
+      "variant": "candidate, first wording",
+      "tools": [
+        "Skill"
+      ],
+      "external_lookups": 0,
+      "reply_characters": 908,
+      "file_writes": 0,
+      "reply": "先说我目前的判断，再问你几个问题。\n\n**真正要先回答的是：回复为什么变慢了？**\n\n工单系统只能解决其中一部分原因：\n\n| 变慢的可能原因 | 典型表现 | 工单系统有没有用 |\n|---|---|---|\n| 不清楚谁负责 | 邮件有人看过却没人回，偶尔两个人回了同一封 | 很有用（可以分配负责人、标记状态） |\n| 邮件被淹没 | 读过之后就沉下去了，客户追问时找不到原来的邮件 | 很有用（有待处理队列和提醒） |\n| 来信量涨了，人没加 | 每个人都很忙，积压越来越多 | 帮助有限（模板、自动分类能省点时间），根本办法是加人，或者想办法让来信变少 |\n| 卡在其他部门 | 要等技术或财务给答复 | 帮助有限（能看到卡在哪），瓶颈在内部协作 |\n| 问题变复杂了 | 每封邮件花的时间越来越长 | 基本没用，要靠知识库、培训或者修产品问题 |\n\n5 个人共用一个邮箱，最常见的是前两种：大家都以为别人会回。但如果你们主要是第三种，花钱迁移到工单系统后，速度不会明显变快。\n\n另外，选择也不只有\"继续用共享邮箱\"和\"换完整工单系统\"两种，中间还有：\n- **不换工具，只改流程**：比如每天轮一个人专门分派邮件，用标签标记处理状态\n- **共享邮箱协作工具**：在现有邮箱上加分配和状态功能，用起来还是像邮件\n- **完整的客服工单系统**\n\n**想先问你几个问题**（大概回答就行，没有数据也没关系）：\n\n1. **\"变慢\"具体指什么？** 是第一次回复变慢了，还是从客户来信到问题解决的整个过程变长了？大概从多久变成了多久，从什么时候开始的？\n2. **来信量有变化吗？** 现在一天大概多少封，跟半年前比怎么样？\n3. **现在怎么决定谁回哪封？** 有固定分工或规则，还是谁看到谁回？\n4. **最慢的那些邮件，一般卡在哪？** 是没人认领、在等其他部门，还是问题本身难处理？\n\n再告诉我你们用的是哪个邮箱，比如 Google Workspace、Microsoft 365 或其他。这决定了哪些中间方案能用。\n\n你回答之后，我会根据你们的情况去查其他客服团队的做法和经验，再一起比较这几个方案。"
+    },
+    {
+      "case": "research_verb_does_not_skip_the_question (eval 15)",
+      "variant": "candidate, released wording",
+      "tools": [
+        "Skill",
+        "ToolSearch",
+        "WebSearch",
+        "WebSearch"
+      ],
+      "external_lookups": 2,
+      "reply_characters": 1432,
+      "file_writes": 0,
+      "reply": "我按你的要求只在对话里讨论，不会创建或保存任何文件。\n\n我先查了其他支持团队和从业者怎么处理这个问题。找到的资料大多是客服软件厂商写的，没有独立的切换前后对比研究。所以下面这些只能算行业经验，不能当实证结论：\n\n- **大家换系统，通常是因为协作出了问题，而不是人数到了某个门槛。** 常见的信号有：\n  - 邮件没人认领；\n  - 两个人同时回复同一封；\n  - 交接时丢了上下文；\n  - 承诺客户的响应时限没法证明有没有做到。\n\n  各家给的门槛差别很大。[SupportBench](https://www.supportbench.com/support-shared-inboxes-customer-organizations/) 说超过 5 人或每月约 500 封就该考虑换；也有对比文章说 15 人以下用共享邮箱反而更合适。所以这些数字不能直接拿来用。\n- **回复变慢，本身不能说明需要工单系统。** 关键是慢在哪里：\n  - 如果慢在\"这封该谁回\"，工单系统正好对症，它能自动分配、标状态、指定负责人，还会提示同事正在回复同一封。\n  - 如果是邮件多了人没加，或者大量是重复问题，换系统帮助不大，更该考虑加人、回复模板、自助文档或自动化。\n- **还有折中做法。** 有些共享收件箱工具已经加了分配、状态和时限提醒，不一定只能在现状和完整工单系统之间二选一。\n- **有时慢是因为没人值班。** 一位 Microsoft 365 管理员报告过一个共享邮箱，平均首次回复要 6 小时以上，部分原因是某些时区根本没人看邮箱。这种情况换工具也解决不了。\n\n来源：[eesel](https://www.eesel.ai/blog/shared-inbox-vs-ticketing-system)、[Serif](https://www.serif.ai/guides/email-ticketing-system)、[HappyFox](https://blog.happyfox.com/shared-inbox-vs-email-helpdesk-whats-best-for-your-team/)、[Dixa](https://www.dixa.com/blog/why-not-to-use-a-shared-mailbox-for-your-customer-support)、[LiveHelpNow](https://livehelpnow.net/blog/when-does-a-small-team-outgrow-a-shared-inbox/)、[Office365ITPros](https://office365itpros.com/2026/03/05/shared-mailbox-kpi/)、[SupportBench](https://www.supportbench.com/support-shared-inboxes-customer-organizations/)\n\n我目前的初步判断是：值不值得换工单系统，主要看你们的回复卡在哪个环节。这只是推测，需要你用实际情况来检验。\n\n请回想最近等得最久的几封邮件，它们主要属于哪一种？\n1. **一直没人碰**：大家都以为别人在处理；\n2. **有人接了但卡住了**：在等其他部门、等客户补充信息，或者交接时断了；\n3. **大家都在忙，一直轮不到**。"
+    },
+    {
+      "case": "private real opening message (liquidity resources request, about 300 characters; content omitted)",
+      "variant": "candidate, first wording",
+      "tools": [
+        "Skill"
+      ],
+      "external_lookups": 0,
+      "reply_characters": 1125,
+      "file_writes": 0
+    },
+    {
+      "case": "private real opening message (liquidity resources request, about 300 characters; content omitted)",
+      "variant": "candidate, released wording",
+      "tools": [
+        "Skill",
+        "ToolSearch",
+        "WebSearch",
+        "WebSearch",
+        "WebFetch",
+        "WebFetch"
+      ],
+      "external_lookups": 4,
+      "reply_characters": 2432,
+      "file_writes": 0
+    },
+    {
+      "case": "private real opening message (liquidity resources request, about 300 characters; content omitted)",
+      "variant": "released opening section alone (3.5 KB)",
+      "tools": [
+        "Skill",
+        "ToolSearch",
+        "WebSearch",
+        "WebSearch",
+        "WebFetch",
+        "WebFetch",
+        "WebSearch",
+        "WebSearch"
+      ],
+      "external_lookups": 6,
+      "reply_characters": 2647,
+      "file_writes": 0
+    },
+    {
+      "case": "private real opening message (liquidity resources request, about 300 characters; content omitted)",
+      "variant": "released opening section alone (3.5 KB)",
+      "tools": [
+        "Skill"
+      ],
+      "external_lookups": 0,
+      "reply_characters": 1185,
+      "file_writes": 0
+    }
+  ]
+}

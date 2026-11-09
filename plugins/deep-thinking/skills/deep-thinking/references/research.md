@@ -43,8 +43,8 @@ For an external Alpha/Beta claim, identify the relevant field, participants, con
 and time. Examine evidence of how widespread or distinctive the idea or practice is;
 failing to find it in a search does not establish rarity. Assess truth, usefulness,
 and feasibility separately: a minority idea can be wrong, and a mainstream one can
-be sound or flawed. Seek the distinctive perspectives implied by "always thinking
-like 1%" without claiming a measured percentile or requiring certainty to explore.
+be sound or flawed. Seek distinctive perspectives without claiming a measured
+percentile or requiring certainty to explore.
 
 Use the direction already agreed in the conversation. Briefly explain a substantial
 new research direction before pursuing it; do not ask for approval of every query.
@@ -72,9 +72,8 @@ sources, their relationships to other factors, and the remaining gaps. A small t
 in the existing thought draft is enough. Prioritize factors whose plausible variation
 could change the conclusion; many settled minor factors do not resolve one pivotal gap.
 
-The owner's "95% confidence" goal means near-complete command of relevant factors
-and information under current conditions, not a 95% probability of success. Support
-that goal by exposing coverage, understanding, and uncertainty. Collected material,
+When the user wants near-complete command of the relevant factors, support that by
+exposing coverage, understanding, and uncertainty. Collected material,
 verified facts, and supported causal explanations are different kinds of progress.
 
 Do not invent an exact coverage percentage when the full factor set is unknown.

@@ -16,7 +16,7 @@ Use it for questions that need sustained discussion and investigation, such as
 assessing a product direction or examining a strongly held view. Routine factual
 questions can go directly to your agent.
 
-Version: 0.5.0. The plugin contains a Skill, references and templates. Your host
+Version: 0.6.0. The plugin contains a Skill, references and templates. Your host
 provides the model and tools.
 
 - [Install and start](#install-and-start)
@@ -118,13 +118,18 @@ you need. For example:
 > alternatives and unresolved questions.
 
 When you want to think together, the agent starts from your current view and reasons.
-It asks one consequential question, ends its response there, and waits for your reply.
+It asks one consequential question that carries its own reading for you to confirm or
+refute, ends its response there, and waits for your reply.
 Your answer determines whether it explains a concept, investigates a fact, challenges
 an inference, asks another question or synthesizes a judgment. It reuses reasoning
 already given and does not turn missing knowledge into a guessing exercise.
 
-A direct request for research, a comparison, a recommendation or a document can
-proceed without an interview. Ask for a direct answer or convergence at any time.
+Order follows what the work depends on. Material you name or a public fact can be
+checked first; judgments, proposals and deep research that depend on your goals and
+constraints wait until you have been asked, even when the request says "look into"
+or "research". Say "just do it" to skip the questions for that request; a request
+confined to premises you already stated proceeds directly. Ask for a direct answer
+or convergence at any time.
 Questions develop your thinking; they are not repeated requests for permission.
 
 You decide your values, tradeoffs and whether to continue. The agent contributes
